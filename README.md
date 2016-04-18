@@ -1,6 +1,6 @@
 # Aurelia Presentation
 
-Slides for Uncharted Aurelia lunch and learn presentation.
+Slides for JavaScript meetup Aurelia presentation.
 
 ## Develop
 
