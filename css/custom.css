@@ -1,0 +1,276 @@
+/* ---------------------------------- */
+/* Accent pink: #cc9393               */
+/* Accent gold: #efdcbc               */
+/* ---------------------------------- */
+
+
+/* ---------------------------------- */
+/* The hackey way to customize        */
+/* ---------------------------------- */
+
+.block {
+  display: inline-block;
+  width: 410px;
+  height: 1.5em;
+  margin: 5px !important;
+  padding: 5px !important;
+  border: 3px solid #e88383 !important;
+  border-radius: 3px !important;
+  background: #5A5859 !important;
+  font-family: monospace !important;
+}
+
+.presentation-code {
+  box-shadow: none !important;
+  tab-size: 2 !important;
+}
+
+.hack-col-left {
+  position: absolute !important;
+  left: -20% !important;
+  width: 700px !important;
+}
+
+.hack-col-right {
+  position: absolute !important;
+  left: 55% !important;
+  width: 630px !important;
+}
+
+/* ---------------------------------- */
+/* The right way to customize         */
+/* ---------------------------------- */
+
+.subsection-start h2 {
+  color: #e88383;
+  font-size: 2.2em;
+}
+
+.subsection-start h2.extra-large {
+  font-size: 4em;
+}
+
+.just-es td {
+  vertical-align: middle;
+}
+
+.just-es td.message-emphasis {
+  color: #cc9393;
+  font-style: italic;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.just-es pre code {
+  padding: 20px;
+}
+
+.dependency-injection p {
+  text-align: center;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 1.2em;
+  color: #efdcbc;
+}
+
+.dependency-injection table {
+  margin: none; /* override reveal's margin: auto */
+  margin-left: 3%;
+}
+
+.dependency-injection table td,
+.dom-manipulation table td,
+.angular-compare-summary table td,
+.angular-compare-db table td,
+.angular-compare-db-code table td,
+.just-es table td {
+  border-bottom: none;
+}
+
+.dependency-injection table td code {
+  color: #cc9393;
+  font-weight: bold;
+}
+
+.dependency-injection section img {
+  position: fixed;
+  top: 24%;
+  left: 24%;
+  margin-top: -50px;
+  margin-left: -180px;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.di-aurelia table {
+  margin-left: -20%;
+}
+
+.di-aurelia pre,
+.just-es pre {
+  width: 100%;
+}
+
+.di-aurelia pre code {
+  max-height: 500px;
+}
+
+.di-aurelia p {
+  font-style: italic;
+  text-align: left;
+}
+
+.just-es .fragment p {
+  margin-left: 5%;
+  text-align: left;
+}
+
+.just-es table,
+.angular-compare-db table {
+  margin-left: -15%;
+  margin-right: -15%;
+}
+
+.angular-compare-db-code table {
+  margin-left: -15%;
+}
+
+.angular-compare-db-code pre {
+  margin-left: 0;
+}
+
+.dom-manipulation table {
+  margin-left: -10%;
+  margin-top: none;
+  margin-bottom: none;
+  margin-right: none;
+}
+
+.dom-manipulation .emphasis,
+.ang-dir .emphasis,
+.scope-parent .emphasis {
+  font-style: italic;
+  color: #cc9393;
+  font-weight: bolder;
+}
+
+.ang-dir .emphasis-alternate {
+  color: #efdcbc;
+}
+
+.angular-compare-db pre,
+.angular-compare-db-code pre {
+  width: 100%;
+}
+
+.dom-manipulation pre {
+  margin-left: 0;
+  width: 100%;
+}
+
+.dom-manipulation p {
+  margin-left: 2%;
+  text-align: left;
+}
+
+.ang-dir p,
+.dom-manipulation p,
+.scope-parent p {
+  text-align: left;
+  font-style: italic;
+}
+
+.ang-dir p code,
+.angular-compare-db code,
+.scope-parent p code {
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
+  background: rgb(63, 63, 63);
+  color: #cc9393;
+  font-style: normal;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.angular-compare-db table th,
+.angular-compare-db-code table th {
+  text-align: center;
+}
+
+.dom-manipulation h2,
+.angular-compare-db h2,
+.angular-compare-db-code h2 {
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+.dom-manipulation table th,
+.angular-compare-db table th,
+.angular-compare-db-code table th {
+  padding-bottom: 0;
+}
+
+.dom-manipulation section img,
+.dom-manipulation section img,
+.angular-compare-db section img,
+.angular-compare-db-code section img,
+.angular-compare-summary section img {
+  border: none;
+  background: none;
+  box-shadow: none;
+  width: 270px;
+  height: 80px;
+}
+
+.dom-manipulation table th,
+.angular-compare-db table th,
+.angular-compare-db-code table th,
+.angular-compare-summary table th {
+  border-bottom: none;
+}
+
+.scope-parent .pen-wrapper {
+  margin-bottom: 180px; /* hack to make page content move up to top */
+}
+
+.react-showdown {
+  margin: 0 auto !important;
+  width: 90%;
+}
+
+.react-showdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.react-showdown > * {
+  display: block;
+  width: 50%;
+}
+
+.react-showdown > *:first-child {
+  float: left;
+}
+
+.react-showdown > *:last-child {
+  float: right;
+}
+
+.reveal pre.jsx {
+  padding: 5px;
+}
+
+.compete img {
+  border: none !important;
+  background-color: rgba(0,0,0,0) !important;
+  box-shadow: none !important;
+  height: 75px;
+}
+
+.compete .goliath img {
+  height: 125px;
+}
