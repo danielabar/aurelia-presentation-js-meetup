@@ -62,14 +62,7 @@
 					</p>
 				</section>
 
-				<!-- Connector (is this slide needed?)-->
-				<section>
-					<h2 style="color:grey">Learn ES2015, Quickly</h2>
-					<hr>
-					<h2 style="color:grey">Aurelia Overview</h2>
-					<hr>
-					<h2 style="color:grey">Testing</h2>
-				</section>
+				<!-- TODO: Why this talk? -->
 
 				<!-- Connector -->
 				<section>
@@ -592,12 +585,23 @@ script.next().value.then((r) => {
 				<!-- BEGIN Daniela: Testing -->
 				<section>
 					<section>
-						<h2>Testing</h2>
+						<h2>Unit Testing with Aurelia</h2>
+						<h3>Good news, it's easy!</h3>
+						<ul>
+							<li>No boilerplate imposed by framework (see Angular 1)</li>
+							<li>Constructor DI makes it trivial to provide mock dependencies</li>
+						</ul>
 					</section>
 
 					<section>
-						<h3>Unit Testing</h3>
-						<h3>End to End (Integratio) Testing</h3>
+						<h2>Everything is a class</h2>
+						<p>A simple pattern for testing:</p>
+						<ul>
+							<li>Import the module</li>
+							<li>Instantiate the class</li>
+							<li>Inovke class methods</li>
+							<li>Make assertions</li>
+						</ul>
 					</section>
 				</section>
 				<!-- END Daniela: Testing -->
