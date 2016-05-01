@@ -597,12 +597,23 @@ script.next().value.then((r) => {
 						<h2>Everything is a class</h2>
 						<p>A simple pattern for testing:</p>
 						<ul>
-							<li>Import the module</li>
-							<li>Instantiate the class</li>
-							<li>Inovke class methods</li>
+							<li>Import module</li>
+							<li>Instantiate class</li>
+							<li>Invoke class methods</li>
 							<li>Make assertions</li>
 						</ul>
 					</section>
+
+          <section>
+            <h2>Unit Test Setup</h2>
+            <h3>Same tooling as other frameworks</h3>
+            <ul>
+              <li>Jasmine to write the tests (describe, it)</li>
+              <li>Karma to run in multiple browsers</li>
+              <li>Gulp to specify alternate Karma configurations (auto-watch, CI)</li>
+            </ul>
+            <p>* Karma Babel pre-processor for transpilation of test and src dirs</p>
+          </section>
 				</section>
 				<!-- END Daniela: Testing -->
 
