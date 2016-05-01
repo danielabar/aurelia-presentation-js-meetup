@@ -610,9 +610,18 @@ script.next().value.then((r) => {
             <ul>
               <li>Jasmine to write the tests (describe, it)</li>
               <li>Karma to run in multiple browsers</li>
-              <li>Gulp to specify alternate Karma configurations (auto-watch, CI)</li>
+              <li>Gulp to specify alternate Karma configurations</li>
             </ul>
-            <p>* Karma Babel pre-processor for transpilation of test and src dirs</p>
+          </section>
+
+          <section>
+            <h2>Unit Test Setup</h2>
+            <h3>Karma Configuration</h3>
+            <ul>
+              <li><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
+              <li><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
+              <li>See an <a href="httlis://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">example</a> of Karma configuration for Aurelia.</li>
+            </ul>
           </section>
 
           <section>
@@ -626,14 +635,15 @@ export class Welcome {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  // ...
+  // other methods ...
 }
             </code></pre>
           </section>
+
           <section>
             <h2>Example: View Model Test</h2>
             <pre class="presentation-code"><code class="hljs" data-trim>
-import {Welcome} from '../src/welcome.js';
+import {Welcome} from '../../src/welcome.js';
 
 describe('Welcome', () => {
   let welcome;
