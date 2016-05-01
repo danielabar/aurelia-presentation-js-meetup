@@ -614,6 +614,44 @@ script.next().value.then((r) => {
             </ul>
             <p>* Karma Babel pre-processor for transpilation of test and src dirs</p>
           </section>
+
+          <section>
+            <h2>Example: View Model</h2>
+            <pre class="presentation-code"><code class="hljs" data-trim>
+export class Welcome {
+  firstName = 'John';
+  lastName = 'Doe';
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  // ...
+}
+            </code></pre>
+          </section>
+          <section>
+            <h2>Example: View Model Test</h2>
+            <pre class="presentation-code"><code class="hljs" data-trim>
+import {Welcome} from '../src/welcome.js';
+
+describe('Welcome', () => {
+  let welcome;
+  beforeEach(() => {
+    welcome = new Welcome();
+  });
+
+  it('Returns default full name', () => {
+    expect(welcome.fullName).toEqual('John Doe');
+  });
+  it('Returns full name', () => {
+    welcome.firstName = 'Sara';
+    welcome.lastName 'Smith';
+    expect(welcome.fullName).toEqual('Sara Smith');
+  });
+});
+            </code></pre>
+          </section>
 				</section>
 				<!-- END Daniela: Testing -->
 
