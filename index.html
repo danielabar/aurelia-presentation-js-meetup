@@ -643,7 +643,7 @@ export class Welcome {
           <section>
             <h2>Example: View Model Test</h2>
             <pre class="presentation-code"><code class="hljs" data-trim>
-import {Welcome} from '../../src/welcome.js';
+import {Welcome} from '../src/welcome.js';
 
 describe('Welcome', () => {
   let welcome;
@@ -665,7 +665,41 @@ describe('Welcome', () => {
 
           <section>
             <h2>Example: Value Converter</h2>
+						<pre class="presentation-code"><code class="hljs" data-trim>
+import moment from 'moment';
+
+export class DateFormatValueConverter {
+  toView(value) {
+		if (value) {
+			return moment(value).format('YYYY/MMM/DD');
+		} else {
+			return '';
+		}
+  }
+}
+						</code></pre>
           </section>
+
+					<section>
+						<h2>Example: Value Converter Test</h2>
+						<pre class="presentation-code"><code class="hljs" data-trim>
+import {DateFormatValueConverter} from './date-format.js';
+
+describe('DateFormatValueConverter', () => {
+  let dateFormat;
+  beforeEach(() => {
+    dateFormat = new DateFormatValueConverter();
+  });
+  it('Returns a formatted date', () => {
+    let value = '2016-04-30T01:00:11.255Z';
+    expect(dateFormat.toView(value)).toEqual('2016/APR/30');
+  });
+  it('Returns an empty string when there is no value', () => {
+    expect(dateFormat.toView()).toEqual('');
+  });
+});
+						</code></pre>
+					</section>
 				</section>
 				<!-- END Daniela: Testing -->
 
