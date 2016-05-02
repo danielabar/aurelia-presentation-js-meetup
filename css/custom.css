@@ -25,6 +25,10 @@
   tab-size: 2 !important;
 }
 
+.presentation-code code {
+  max-height: 500px !important;
+}
+
 .hack-col-left {
   position: absolute !important;
   left: -20% !important;
