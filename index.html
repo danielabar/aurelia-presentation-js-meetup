@@ -700,6 +700,30 @@ describe('DateFormatValueConverter', () => {
 });
 						</code></pre>
 					</section>
+
+					<section>
+						<h2>End to End Testing</h2>
+						<h3>Challenges with Selenium</h3>
+						<ul>
+							<li>Can be slow to run</li>
+							<li>Brittle when test depend on DOM</li>
+							<li>All browser interaction is asynchronous</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Protractor to the rescue!</h2>
+						<ul>
+							<li>End to end test framework developed for Angular, but also supports Aurelia with a plugin</li>
+							<li>Is Aurelia "aware", can reference elements by data binding rather than DOM</li>
+							<li>Patched Jasmine assertions to wait for async, simplifies test writing</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>E2E Example</h2>
+						<h3>TBD...</h3>
+					</section>
 				</section>
 				<!-- END Daniela: Testing -->
 
