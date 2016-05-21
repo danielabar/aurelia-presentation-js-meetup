@@ -742,6 +742,56 @@ describe('DateFormatValueConverter', () => {
 							Further reading: <a href="https://github.com/angular/protractor/blob/master/docs/page-objects.md">Protractor Documentation</a>
 						</p>
 					</section>
+
+					<section>
+						<h2>Page Object Example</h2>
+						  <pre class="presentation-code"><code class="hljs" data-trim>
+export class PageObjectWelcome {
+	constructor() { }
+
+	setFirstName(value) {
+		return element(by.valueBind('user.firstName'))
+			.clear().sendKeys(value);
+	}
+
+	register() {
+		element(by.clickTrigger('register()')).click();
+	}
+}
+							</code></pre>
+					</section>
+
+					<section>
+						<h2>Page Object Usage</h2>
+						<pre class="presentation-code"><code class="hljs" data-trim>
+import {PageObjectWelcome} from './welcome.po';
+
+describe('Welcome Page', () => {
+	let poWElcome;
+
+	beforeEach(() => {
+		poWelcome = new PageObjectWelcome();
+	});
+
+	it('Allows user to register', () => {
+		poWelcome.setFirstName('Joe');
+		poWelcome.setLastName('Smith');
+		poWelcome.register();
+		...
+	})
+});
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Page Objects &amp; Aurelia WIP</h2>
+						<ul>
+							<li>No "wait for binding", workaround is <code>browser.sleep(200)</code></li>
+							<li>No repeater binding</li>
+							<li>No binding for string interpolation</li>
+							<li>Skeleton plugin is limited, I've written additional locators <a href="https://gist.github.com/danielabar/8b25a328f5aa974827e648f5ab8c4979">here</a>.</li>
+						</ul>
+					</section>
 				</section>
 				<!-- END Daniela: Testing -->
 
