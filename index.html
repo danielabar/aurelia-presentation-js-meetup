@@ -705,18 +705,19 @@ describe('DateFormatValueConverter', () => {
 						<h2>End to End Testing</h2>
 						<h3>Challenges with Selenium</h3>
 						<ul>
-							<li>Can be slow to run</li>
-							<li>Brittle when test depend on DOM</li>
-							<li>All browser interaction is asynchronous</li>
+							<li>Tests are brittle due to dependency on DOM and CSS.</li>
+							<li>Browser interaction is asynchronous.</li>
+							<li>Especially for SPA's, need to detect when routing is complete.</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>Protractor to the rescue!</h2>
 						<ul>
-							<li>End to end test framework developed for Angular, but also supports Aurelia with a plugin</li>
-							<li>Is Aurelia "aware", can reference elements by data binding rather than DOM</li>
-							<li>Patched Jasmine assertions to wait for async, simplifies test writing</li>
+							<li>End to end test framework developed for Angular, but also supports Aurelia with a plugin.</li>
+							<li>Browser interactions return promises, patched Jasmine expect waits for promise to resolve.</li>
+							<li>Knows when Aurelia page has finished loading and when routing is complete.</li>
+							<li>Reference elements by data binding rather than DOM.</li>
 						</ul>
 					</section>
 
