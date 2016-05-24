@@ -597,15 +597,36 @@ script.next().value.then((r) => {
 						</ul>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Everything is a class</h2>
 						<p>A simple pattern for testing:</p>
-						<ul>
-							<li>Import module</li>
-							<li>Instantiate class</li>
-							<li>Invoke class methods</li>
-							<li>Make assertions</li>
-						</ul>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment" data-fragment-index="1">Import module</li>
+									<li class="fragment" data-fragment-index="2">Instantiate class</li>
+									<li class="fragment" data-fragment-index="3">Invoke class methods and make assertions</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim>
+import {Foo} from '../src/foo';
+								</code></pre>
+								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim>
+describe('Foo', () => {
+	let foo;
+	beforeEach(() => {
+		foo = new Foo();
+	});
+});
+								</code></pre>
+								<pre class="presentation-code fragment" data-fragment-index="3"><code class="hljs" data-trim>
+it('Does something', () => {
+	expect(foo.doSomething()).toEqual('foo');
+});
+								</code></pre>
+							</div>
+						</div>
 					</section>
 
           <section>
