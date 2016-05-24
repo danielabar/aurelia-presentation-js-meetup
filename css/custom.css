@@ -53,8 +53,6 @@
 /* ---------------------------------- */
 
 .side-by-side .container {
-  /*width: 150%;*/
-  /*margin-left: -25%;*/
   margin: 0 auto;
   display: flex;
 }
@@ -62,6 +60,18 @@
 .side-by-side .left-side,
 .side-by-side .right-side {
   width: 50%;
+}
+
+.enough-foo .content {
+  margin-top: -175px;
+}
+
+.enough-foo h2 {
+  font-size: 1.8em;
+}
+
+.enough-foo h3 {
+  font-size: 1.5em;
 }
 
 .e2e-example h3 {
