@@ -629,26 +629,6 @@ it('Does something', () => {
 						</div>
 					</section>
 
-          <section>
-            <h2>Unit Test Setup</h2>
-            <h3>Same tooling as other frameworks</h3>
-            <ul>
-              <li>Jasmine to write the tests (describe, it)</li>
-              <li>Karma to run in multiple browsers</li>
-              <li>Gulp to specify alternate Karma configurations</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>Unit Test Setup</h2>
-            <h3>Karma Configuration</h3>
-            <ul>
-              <li><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
-              <li><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
-              <li>See an <a href="https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">example</a> of Karma configuration for Aurelia.</li>
-            </ul>
-          </section>
-
 					<section data-state="side-by-side">
 						<h2>Example: View Model</h2>
 						<div class="container">
@@ -695,45 +675,6 @@ describe('Welcome', () => {
 					</section>
 
           <section>
-            <h2>Example: View Model</h2>
-            <pre class="presentation-code"><code class="hljs" data-trim>
-export class Welcome {
-  firstName = 'John';
-  lastName = 'Doe';
-
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  // other methods ...
-}
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>Example: View Model Test</h2>
-            <pre class="presentation-code"><code class="hljs" data-trim>
-import {Welcome} from '../src/welcome.js';
-
-describe('Welcome', () => {
-  let welcome;
-  beforeEach(() => {
-    welcome = new Welcome();
-  });
-
-  it('Returns default full name', () => {
-    expect(welcome.fullName).toEqual('John Doe');
-  });
-  it('Returns full name', () => {
-    welcome.firstName = 'Sara';
-    welcome.lastName 'Smith';
-    expect(welcome.fullName).toEqual('Sara Smith');
-  });
-});
-            </code></pre>
-          </section>
-
-          <section>
             <h2>Example: Value Converter</h2>
 						<h3>TODO replace with example VM mock DI</h3>
 						<pre class="presentation-code"><code class="hljs" data-trim>
@@ -771,6 +712,26 @@ describe('DateFormatValueConverter', () => {
 });
 						</code></pre>
 					</section>
+
+          <section>
+            <h2>Unit Test Setup</h2>
+            <h3>Same tooling as other frameworks</h3>
+            <ul>
+              <li>Jasmine to write the tests (describe, it)</li>
+              <li>Karma to run in multiple browsers</li>
+              <li>Gulp to specify alternate Karma configurations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Unit Test Setup</h2>
+            <h3>Karma Configuration</h3>
+            <ul>
+              <li><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
+              <li><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
+              <li>See an <a href="https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">example</a> of Karma configuration for Aurelia.</li>
+            </ul>
+          </section>
 
 					<section>
 						<h2>End to End Testing</h2>
