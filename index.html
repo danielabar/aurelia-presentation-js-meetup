@@ -725,9 +725,25 @@ describe('DateFormatValueConverter', () => {
 						</ul>
 					</section>
 
-					<section>
+					<section data-state="e2e-example">
 						<h2>E2E Example</h2>
-						<h3>TBD...</h3>
+						<h3>Template</h3>
+						<pre class="presentation-code"><code class="hljs" data-trim>
+<input type="text" value.bind="firstName" placeholder="first name">
+<input type="text" value.bind="lastName" placeholder="last name">
+<div class="full-name">${fullName | upper}</div>
+						</code></pre>
+						<h3>Test</h3>
+						<pre class="presentation-code"><code class="hljs" data-trim>
+describe('Welcome Page', () => {
+	it('Displays full name', () => {
+		element(by.valueBind('firstName')).clear().sendKeys('John');
+		element(by.valueBind('lastName')).clear().sendKeys('Smith');
+		expect(element(by.css('.full-name')).getText())
+			.toEqual('JOHN SMITH');
+	});
+});
+						</code></pre>
 					</section>
 
 					<section data-state="page-object">
