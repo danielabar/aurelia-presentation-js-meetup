@@ -11,6 +11,13 @@
 .reveal .slide-background {
   background-position: 10% 10% !important;
 }
+
+.no-border {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
 .block {
   display: inline-block;
   width: 410px;

@@ -785,7 +785,7 @@ describe('Welcome Page', () => {
 						<h2>Page Objects</h2>
 						<blockquote cite="https://github.com/angular/protractor/blob/master/docs/page-objects.md">
 							<i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
-							When writing end-to-end tests, a common pattern is to use Page Objects. <br>
+							When writing end-to-end tests, a common pattern is to use Page Objects.
 							Page Objects help you write cleaner tests by encapsulating information about the elements on your application page.
 							They can be reused across multiple tests, and if the template changes, you only need to update the Page Object.
 						</blockquote>
@@ -834,14 +834,21 @@ describe('Welcome Page', () => {
 						</code></pre>
 					</section>
 
-					<section>
-						<h2>Page Objects &amp; Aurelia WIP</h2>
-						<ul>
-							<li>No "wait for binding", workaround is <code>browser.sleep(200)</code></li>
-							<li>No repeater binding</li>
-							<li>No binding for string interpolation</li>
-							<li>Skeleton plugin is limited, I've written additional locators <a href="https://gist.github.com/danielabar/8b25a328f5aa974827e648f5ab8c4979">here</a>.</li>
-						</ul>
+					<section data-state="side-by-side">
+						<h2>Still some work to be done</h2>
+						<div class="container">
+							<div class="left">
+								<img src="images/lego-house-work-in-progress-large.jpg" width="700px" class="no-border" alt="work in progress">
+							</div>
+							<div class="right">
+								<ul>
+									<li class="fragment">No "wait for binding", workaround is <code>browser.sleep(200)</code></li>
+									<li class="fragment">No repeater binding</li>
+									<li class="fragment">No binding for string interpolation</li>
+									<li class="fragment">Skeleton plugin is limited, I've written additional locators <a href="https://gist.github.com/danielabar/8b25a328f5aa974827e648f5ab8c4979">here</a>.</li>
+								</ul>
+							</div>
+						</div>
 					</section>
 				</section>
 				<!-- END Daniela: Testing -->
