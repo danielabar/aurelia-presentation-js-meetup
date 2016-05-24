@@ -59,7 +59,8 @@
 /* The right way to customize         */
 /* ---------------------------------- */
 
-.side-by-side .container {
+.side-by-side .container,
+.side-by-side-rescue .container {
   margin: 0 auto;
   display: flex;
 }
@@ -67,6 +68,14 @@
 .side-by-side .left-side,
 .side-by-side .right-side {
   width: 50%;
+}
+
+.side-by-side-rescue .left-side {
+  flex-shrink: 1.4;
+}
+
+.side-by-side-rescue .right-side {
+  flex-shrink: 1;
 }
 
 .enough-foo .content {
