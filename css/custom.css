@@ -9,7 +9,7 @@
 /* ---------------------------------- */
 
 .reveal .slide-background {
-  background-position: 0 0 !important;
+  background-position: 10% 10% !important;
 }
 .block {
   display: inline-block;

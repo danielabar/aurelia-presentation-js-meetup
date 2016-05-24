@@ -629,8 +629,8 @@ script.next().value.then((r) => {
           </section>
 
 					<section data-state="side-by-side">
-						<h2>Experiment Side by Side</h2>
-						<div class="container stretch">
+						<h2>Example: View Model</h2>
+						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
 export class Welcome {
@@ -638,7 +638,8 @@ export class Welcome {
   lastName = 'Doe';
 
   get fullName() {
-    return `${this.firstName} ${this.lastName}`;
+    return `${this.firstName}
+			${this.lastName}`;
   }
 
   // other methods ...
@@ -647,7 +648,8 @@ export class Welcome {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
-import {Welcome} from '../src/welcome.js';
+import {Welcome} from
+	'../src/welcome.js';
 
 describe('Welcome', () => {
   let welcome;
@@ -656,12 +658,14 @@ describe('Welcome', () => {
   });
 
   it('Returns default full name', () => {
-    expect(welcome.fullName).toEqual('John Doe');
+    expect(welcome.fullName)
+			.toEqual('John Doe');
   });
   it('Returns full name', () => {
     welcome.firstName = 'Sara';
-    welcome.lastName 'Smith';
-    expect(welcome.fullName).toEqual('Sara Smith');
+    welcome.lastName = 'Smith';
+    expect(welcome.fullName)
+			.toEqual('Sara Smith');
   });
 });
 								</code></pre>
@@ -897,6 +901,7 @@ describe('Welcome Page', () => {
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				width: 1200,
 				controls: true,
 				progress: true,
 				history: true,
