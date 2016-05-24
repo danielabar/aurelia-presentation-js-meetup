@@ -628,6 +628,47 @@ script.next().value.then((r) => {
             </ul>
           </section>
 
+					<section data-state="side-by-side">
+						<h2>Experiment Side by Side</h2>
+						<div class="container stretch">
+							<div class="left-side">
+								<pre class="presentation-code"><code class="hljs" data-trim>
+export class Welcome {
+  firstName = 'John';
+  lastName = 'Doe';
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  // other methods ...
+}
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim>
+import {Welcome} from '../src/welcome.js';
+
+describe('Welcome', () => {
+  let welcome;
+  beforeEach(() => {
+    welcome = new Welcome();
+  });
+
+  it('Returns default full name', () => {
+    expect(welcome.fullName).toEqual('John Doe');
+  });
+  it('Returns full name', () => {
+    welcome.firstName = 'Sara';
+    welcome.lastName 'Smith';
+    expect(welcome.fullName).toEqual('Sara Smith');
+  });
+});
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
           <section>
             <h2>Example: View Model</h2>
             <pre class="presentation-code"><code class="hljs" data-trim>
@@ -669,6 +710,7 @@ describe('Welcome', () => {
 
           <section>
             <h2>Example: Value Converter</h2>
+						<h3>TODO replace with example VM mock DI</h3>
 						<pre class="presentation-code"><code class="hljs" data-trim>
 import moment from 'moment';
 
@@ -813,7 +855,8 @@ describe('Welcome Page', () => {
 
 				<!-- BEGIN Daniela: Gotchas -->
 				<section data-transition="convex">
-					<section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif" data-background-size="80%">
+					<!-- <section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif" data-background-size="80%"> -->
+					<section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif">
 						<h2 class="extra-large">Gotchas</h2>
 					</section>
 					<section>
@@ -875,6 +918,6 @@ describe('Welcome Page', () => {
 			});
 
 		</script>
-
+		<script src="js/custom.js"></script>
 	</body>
 </html>
