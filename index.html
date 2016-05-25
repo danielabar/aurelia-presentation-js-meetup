@@ -588,16 +588,23 @@ script.next().value.then((r) => {
 
 				<!-- BEGIN Daniela: Testing -->
 				<section>
-					<section>
+					<section data-state="side-by-side">
 						<h2>Unit Testing with Aurelia</h2>
 						<h3>Good news, it's easy!</h3>
-						<ul>
-							<li>No boilerplate imposed by framework (see Angular 1)</li>
-							<li>Constructor DI makes it trivial to provide mock dependencies</li>
-						</ul>
+						<div class="container">
+							<div class="left-side">
+								<img src="images/easy.jpg" class="no-border" alt="easy">
+							</div>
+							<div class="right-side">
+								<ul>
+									<li class="fragment">No boilerplate imposed by framework (see Angular 1)</li>
+									<li class="fragment">Constructor DI makes it trivial to provide mock dependencies</li>
+								</ul>
+							</div>
+						</div>
 					</section>
 
-					<section data-state="side-by-side">
+					<section data-state="side-by-side" data-transition="none">
 						<h2>Everything is a class</h2>
 						<p>A simple pattern for testing:</p>
 						<div class="container">
@@ -629,7 +636,7 @@ it('Does something', () => {
 						</div>
 					</section>
 
-					<section data-state="enough-foo" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
+					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
 						<div class="content">
 							<h2>Enough with the Foo</h2>
 							<h3>Let's see a real example!</h3>
