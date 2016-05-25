@@ -612,25 +612,25 @@ script.next().value.then((r) => {
 								<ul>
 									<li class="fragment" data-fragment-index="1">Import module</li>
 									<li class="fragment" data-fragment-index="2">Instantiate class</li>
-									<li class="fragment" data-fragment-index="3">Invoke class methods and make assertions</li>
+									<li class="fragment" data-fragment-index="3">Invoke class methods</li>
+									<li class="fragment" data-fragment-index="4">Make assertions</li>
 								</ul>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim>
-import {Foo} from '../src/foo';
-								</code></pre>
-								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim>
-describe('Foo', () => {
+								<pre class="presentation-code"><code class="hljs" data-trim  data-noescape>
+<span class="fragment" data-fragment-index="1">import {Foo} from '../src/foo';</span>
+
+<span class="fragment" data-fragment-index="2">describe('Foo', () => {
 	let foo;
 	beforeEach(() => {
 		foo = new Foo();
-	});
-});
-								</code></pre>
-								<pre class="presentation-code fragment" data-fragment-index="3"><code class="hljs" data-trim>
-it('Does something', () => {
-	expect(foo.doSomething()).toEqual('foo');
-});
+	});</span>
+	
+	<span class="fragment" data-fragment-index="3">it('Does something', () => {
+		let result = foo.doSomething();</span>
+		<span class="fragment" data-fragment-index="4">expect(result).toEqual('foo');</span>
+	<span class="fragment" data-fragment-index="3">});</span>
+<span class="fragment" data-fragment-index="2">});</span>
 								</code></pre>
 							</div>
 						</div>
