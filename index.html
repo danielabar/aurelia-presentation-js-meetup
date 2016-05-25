@@ -597,8 +597,8 @@ script.next().value.then((r) => {
 							</div>
 							<div class="right-side">
 								<ul>
-									<li class="fragment">No boilerplate imposed by framework (see Angular 1)</li>
-									<li class="fragment">Constructor DI makes it trivial to provide mock dependencies</li>
+									<li class="fragment">No boilerplate imposed by framework (cough Angular 1).</li>
+									<li class="fragment">Constructor based dependency injection makes it trivial to provide mock dependencies.</li>
 								</ul>
 							</div>
 						</div>
@@ -662,27 +662,27 @@ export class Welcome {
 								</code></pre>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim>
-import {Welcome} from
-	'../src/welcome.js';
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+<span class="fragment"  data-fragment-index="1">import {Welcome} from
+	'../src/welcome.js';</span>
 
-describe('Welcome', () => {
-  let welcome;
+<span class="fragment" data-fragment-index="2">describe('Welcome', () => {</span>
+  <span class="fragment" data-fragment-index="3">let welcome;
   beforeEach(() => {
     welcome = new Welcome();
-  });
+  });</span>
 
-  it('Returns default full name', () => {
+  <span class="fragment" data-fragment-index="4">it('Returns default full name', () => {
     expect(welcome.fullName)
 			.toEqual('John Doe');
-  });
-  it('Returns full name', () => {
+  });</span>
+  <span class="fragment" data-fragment-index="5">it('Returns full name', () => {
     welcome.firstName = 'Sara';
     welcome.lastName = 'Smith';
     expect(welcome.fullName)
 			.toEqual('Sara Smith');
-  });
-});
+  });</span>
+<span class="fragment" data-fragment-index="2">});</span>
 								</code></pre>
 							</div>
 						</div>
