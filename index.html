@@ -610,10 +610,10 @@ script.next().value.then((r) => {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li class="fragment" data-fragment-index="1">Import module</li>
-									<li class="fragment" data-fragment-index="2">Instantiate class</li>
-									<li class="fragment" data-fragment-index="3">Invoke class methods</li>
-									<li class="fragment" data-fragment-index="4">Make assertions</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import module</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Instantiate class</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Invoke class methods</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Make assertions</li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -625,7 +625,7 @@ script.next().value.then((r) => {
 	beforeEach(() => {
 		foo = new Foo();
 	});</span>
-	
+
 	<span class="fragment" data-fragment-index="3">it('Does something', () => {
 		let result = foo.doSomething();</span>
 		<span class="fragment" data-fragment-index="4">expect(result).toEqual('foo');</span>
