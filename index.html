@@ -715,26 +715,26 @@ export class DateFormatValueConverter {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment"  data-fragment-index="1">import {DateFormatValueConverter} from
+<span class="fragment" data-fragment-index="1">import {DateFormatValueConverter} from
 	'../src/date-format.js';</span>
 
-<span class="fragment"  data-fragment-index="2">describe('DateFormatValueConverter', () => {</span>
-	<span class="fragment"  data-fragment-index="3">let dateFormat;
+<span class="fragment" data-fragment-index="2">describe('DateFormatValueConverter', () => {</span>
+	<span class="fragment" data-fragment-index="3">let dateFormat;
 	beforeEach(() => {
 		dateFormat =
 			new DateFormatValueConverter();
 	});</span>
 
-	<span class="fragment"  data-fragment-index="4">it('Returns a formatted date', () => {
+	<span class="fragment" data-fragment-index="4">it('Returns a formatted date', () => {
 		let value = '2016-04-30';
     expect(dateFormat.toView(value))
 			.toEqual('April 30th 2016');
 	});</span>
-	<span class="fragment"  data-fragment-index="5">it('Returns empty string when no value', () => {
+	<span class="fragment" data-fragment-index="5">it('Returns empty string when no value', () => {
 		expect(dateFormat.toView())
 			.toEqual('');
 	});</span>
-<span class="fragment"  data-fragment-index="2">});<span>
+<span class="fragment" data-fragment-index="2">});<span>
 								</code></pre>
 							</div>
 						</div>
@@ -742,13 +742,41 @@ export class DateFormatValueConverter {
 
 					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
 						<div class="content-single">
-							<h3>That looks the same as the last example! Let's see something more complicated...</h3>
+							<h2>What about mocking dependencies?</h2>
 						</div>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Example: Mocking Dependencies (WIP)</h2>
-						<h3>Replace hard-coded date format with config</h3>
+						<h3>Remove hard-coded date format</h3>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+import moment from 'moment';
+import {inject} from 'aurelia-framework';
+import {AppConfig} from './app-config';
+
+@inject(AppConfig)
+export class DateFormatValueConverter {
+  constructor(appConfig) {
+    this.appConfig = appConfig;
+  }
+  toView(value) {
+    let result = '';
+    if (value) {
+      result = moment(value)
+				.format(this.appConfig.getDateFormat());
+    }
+    return result;
+  }
+}
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+								</code></pre>
+							</div>
+						</div>
 					</section>
 
           <section>
@@ -935,7 +963,7 @@ describe('Welcome Page', () => {
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				width: 1200,
+				width: 1300,
 				controls: true,
 				progress: true,
 				history: true,
