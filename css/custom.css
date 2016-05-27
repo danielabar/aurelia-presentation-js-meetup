@@ -82,6 +82,10 @@
   margin-top: -175px;
 }
 
+.enough-foo .content-single {
+  margin-top: -125px;
+}
+
 .enough-foo h2 {
   font-size: 1.8em;
 }

@@ -643,7 +643,7 @@ script.next().value.then((r) => {
 						</div>
 					</section>
 
-					<section data-state="side-by-side">
+					<section data-state="side-by-side" data-transition="none">
 						<h2>Example: View Model</h2>
 						<div class="container">
 							<div class="left-side">
@@ -688,43 +688,67 @@ export class Welcome {
 						</div>
 					</section>
 
-          <section>
+					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
+						<div class="content-single">
+							<h2>We want more examples!</h2>
+						</div>
+					</section>
+
+          <section data-state="side-by-side">
             <h2>Example: Value Converter</h2>
-						<h3>TODO replace with example VM mock DI</h3>
-						<pre class="presentation-code"><code class="hljs" data-trim>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code"><code class="hljs" data-trim>
 import moment from 'moment';
 
 export class DateFormatValueConverter {
-  toView(value) {
+	toView(value) {
 		if (value) {
-			return moment(value).format('YYYY/MMM/DD');
+			return moment(value)
+				.format('MMMM Do YYYY');
 		} else {
 			return '';
 		}
-  }
+	}
 }
-						</code></pre>
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+<span class="fragment"  data-fragment-index="1">import {DateFormatValueConverter} from
+	'../src/date-format.js';</span>
+
+<span class="fragment"  data-fragment-index="2">describe('DateFormatValueConverter', () => {</span>
+	<span class="fragment"  data-fragment-index="3">let dateFormat;
+	beforeEach(() => {
+		dateFormat =
+			new DateFormatValueConverter();
+	});</span>
+
+	<span class="fragment"  data-fragment-index="4">it('Returns a formatted date', () => {
+		let value = '2016-04-30';
+    expect(dateFormat.toView(value))
+			.toEqual('April 30th 2016');
+	});</span>
+	<span class="fragment"  data-fragment-index="5">it('Returns empty string when no value', () => {
+		expect(dateFormat.toView())
+			.toEqual('');
+	});</span>
+<span class="fragment"  data-fragment-index="2">});<span>
+								</code></pre>
+							</div>
+						</div>
           </section>
 
-					<section>
-						<h2>Example: Value Converter Test</h2>
-						<pre class="presentation-code"><code class="hljs" data-trim>
-import {DateFormatValueConverter} from '../src/date-format.js';
+					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
+						<div class="content-single">
+							<h3>That looks the same as the last example! Let's see something more complicated...</h3>
+						</div>
+					</section>
 
-describe('DateFormatValueConverter', () => {
-  let dateFormat;
-  beforeEach(() => {
-    dateFormat = new DateFormatValueConverter();
-  });
-  it('Returns a formatted date', () => {
-    let value = '2016-04-30T01:00:11.255Z';
-    expect(dateFormat.toView(value)).toEqual('2016/APR/30');
-  });
-  it('Returns an empty string when there is no value', () => {
-    expect(dateFormat.toView()).toEqual('');
-  });
-});
-						</code></pre>
+					<section>
+						<h2>Example: Mocking Dependencies (WIP)</h2>
+						<h3>Replace hard-coded date format with config</h3>
 					</section>
 
           <section>
