@@ -747,7 +747,7 @@ export class DateFormatValueConverter {
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>Example: Mocking Dependencies (WIP)</h2>
+						<h2>Example: Mocking Dependencies</h2>
 						<h3>Remove hard-coded date format</h3>
 						<div class="container">
 							<div class="left-side">
@@ -774,6 +774,31 @@ export class DateFormatValueConverter {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+import {DateFormatValueConverter} from
+	'../../src/date-format';
+
+class AppConfigStub {
+  getDateFormat() {
+    return 'MMMM Do YYYY';
+  }
+}
+
+describe('Date Format', () => {
+  let dateFormat;
+  let mockAC;
+
+  beforeEach(() => {
+    mockAC = new AppConfigStub();
+    dateFormat =
+			new DateFormatValueConverter(mockAC);
+  });
+
+  it('Returns a formatted date', () => {
+    let value = '2016-04-30';
+    expect(dateFormat.toView(value))
+			.toEqual('April 30th 2016');
+  });
+});
 								</code></pre>
 							</div>
 						</div>
