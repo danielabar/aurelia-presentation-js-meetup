@@ -760,9 +760,9 @@ export class DateFormatValueConverter {
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 import moment from 'moment';
 <span class="fragment" data-fragment-index="1">import {inject} from 'aurelia-framework';</span>
-<span class="fragment" data-fragment-index="2">import {AppConfig} from './app-config';</span>
+<span class="fragment" data-fragment-index="1">import {AppConfig} from './app-config';</span>
 
-<span class="fragment" data-fragment-index="3">@inject(AppConfig)</span>
+<span class="fragment" data-fragment-index="1">@inject(AppConfig)</span>
 export class DateFormatValueConverter {
   <span class="fragment" data-fragment-index="4">constructor(appConfig) {
     this.appConfig = appConfig;
@@ -829,28 +829,36 @@ export class DateFormatValueConverter {
             </ul>
           </section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>End to End Testing</h2>
 						<h3>Challenges with Selenium</h3>
-						<ul>
-							<li>Tests are brittle due to dependency on DOM and CSS.</li>
-							<li>Browser interaction is asynchronous.</li>
-							<li>Especially for SPA's, need to detect when routing is complete.</li>
-						</ul>
+						<div class="container">
+							<div class="left-side">
+								<img src="images/selenium-beast.jpg" alt="selenium is a beast" class="no-border">
+							</div>
+							<div class="right-side">
+								<ul>
+									<li class="fragment">Tests are brittle due to dependency on DOM and CSS.</li>
+									<li class="fragment">Browser interaction is asynchronous.</li>
+									<li class="fragment">Complexity for SPA's detecting when page is laoded, routing is complete.</li>
+								</ul>
+							</div>
+						</div>
 					</section>
 
 					<section data-state="side-by-side-rescue">
 						<h2>Protractor to the rescue!</h2>
+						<h3>End to end test framework</h3>
 						<div class="container">
 							<div class="left-side">
 								<img src="images/squirrel-to-the-rescue-large.jpg" class="no-border" alt="squirrel to the rescue">
 							</div>
 							<div class="right-side">
 								<ul>
-									<li>End to end test framework developed for Angular, but also supports Aurelia with a plugin.</li>
-									<li>Browser interactions return promises, patched Jasmine <code>expect</code> waits for promise to resolve.</li>
-									<li>Knows when Aurelia page has finished loading.</li>
-									<li>Locators to find elements by binding rather than DOM positioning.</li>
+									<li class="fragment">Developed for Angular, but also supports Aurelia with a plugin.</li>
+									<li class="fragment">Browser interactions return promises, Jasmine assertions patched to wait for resolve</li>
+									<li class="fragment">Knows when Aurelia page has finished loading.</li>
+									<li class="fragment">Locators to find elements by binding rather than DOM positioning.</li>
 								</ul>
 							</div>
 						</div>
@@ -859,21 +867,21 @@ export class DateFormatValueConverter {
 					<section data-state="e2e-example">
 						<h2>E2E Example</h2>
 						<h3>Template</h3>
-						<pre class="presentation-code"><code class="hljs" data-trim>
+						<pre class="presentation-code"><code class="hbs" data-trim>
 <input type="text" value.bind="firstName" placeholder="first name">
 <input type="text" value.bind="lastName" placeholder="last name">
 <div class="full-name">${fullName | upper}</div>
 						</code></pre>
 						<h3>Test</h3>
-						<pre class="presentation-code"><code class="hljs" data-trim>
-describe('Welcome Page', () => {
-	it('Displays full name', () => {
-		element(by.valueBind('firstName')).clear().sendKeys('John');
-		element(by.valueBind('lastName')).clear().sendKeys('Smith');
-		expect(element(by.css('.full-name')).getText())
-			.toEqual('JOHN SMITH');
-	});
-});
+						<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+<span class="fragment" data-fragment-index="1">describe('Welcome Page', () => {</span>
+	<span class="fragment" data-fragment-index="2">it('Displays full name', () => {</span>
+		<span class="fragment" data-fragment-index="3">element(by.valueBind('firstName')).clear().sendKeys('John');
+		element(by.valueBind('lastName')).clear().sendKeys('Smith');</span>
+		<span class="fragment" data-fragment-index="4">expect(element(by.css('.full-name')).getText())
+			.toEqual('JOHN SMITH');</span>
+	<span class="fragment" data-fragment-index="2">});</span>
+<span class="fragment" data-fragment-index="1">});</span>
 						</code></pre>
 					</section>
 
