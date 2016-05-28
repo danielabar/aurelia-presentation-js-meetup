@@ -865,31 +865,40 @@ export class DateFormatValueConverter {
 						</div>
 					</section>
 
-					<section data-state="e2e-example">
+					<section data-state="side-by-side">
 						<h2>E2E Example</h2>
-						<h3>Template</h3>
 						<pre class="presentation-code"><code class="hbs" data-trim>
 <input type="text" value.bind="firstName" placeholder="first name">
 <input type="text" value.bind="lastName" placeholder="last name">
 <div class="full-name">${fullName | upper}</div>
 						</code></pre>
-						<h3>Test</h3>
-						<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment" data-fragment-index="1">Describe block</li>
+									<li class="fragment" data-fragment-index="2">Add a test</li>
+									<li class="fragment" data-fragment-index="3">Find element by binding and input value</li>
+									<li class="fragment" data-fragment-index="4">Make assertions</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 <span class="fragment" data-fragment-index="1">describe('Welcome Page', () => {</span>
 	<span class="fragment" data-fragment-index="2">it('Displays full name', () => {</span>
-		<span class="fragment" data-fragment-index="3">element(by.valueBind('firstName')).clear().sendKeys('John');
-		element(by.valueBind('lastName')).clear().sendKeys('Smith');</span>
-		<span class="fragment" data-fragment-index="4">expect(element(by.css('.full-name')).getText())
+		<span class="fragment" data-fragment-index="3">element(by.valueBind('firstName'))
+			.clear().sendKeys('John');
+		element(by.valueBind('lastName'))
+			.clear().sendKeys('Smith');</span>
+		<span class="fragment" data-fragment-index="4">expect(element(by.css('.full-name'))
+			.getText())
 			.toEqual('JOHN SMITH');</span>
 	<span class="fragment" data-fragment-index="2">});</span>
 <span class="fragment" data-fragment-index="1">});</span>
-						</code></pre>
-						<ul>
-							<li class="fragment" data-fragment-index="1">Describe block</li>
-							<li class="fragment" data-fragment-index="2">Add a test</li>
-							<li class="fragment" data-fragment-index="3">Find element by binding and input value</li>
-							<li class="fragment" data-fragment-index="4">Make assertions about something on the page</li>
-						</ul>
+								</code></pre>
+							</div>
+						</div>
+
 					</section>
 
 					<section data-state="page-object">
