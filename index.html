@@ -759,19 +759,20 @@ export class DateFormatValueConverter {
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 import moment from 'moment';
-import {inject} from 'aurelia-framework';
-import {AppConfig} from './app-config';
+<span class="fragment" data-fragment-index="1">import {inject} from 'aurelia-framework';</span>
+<span class="fragment" data-fragment-index="2">import {AppConfig} from './app-config';</span>
 
-@inject(AppConfig)
+<span class="fragment" data-fragment-index="3">@inject(AppConfig)</span>
 export class DateFormatValueConverter {
-  constructor(appConfig) {
+  <span class="fragment" data-fragment-index="4">constructor(appConfig) {
     this.appConfig = appConfig;
-  }
+  }</span>
   toView(value) {
     let result = '';
     if (value) {
       result = moment(value)
-				.format(this.appConfig.getDateFormat());
+				// .format('MMMM Do YYYY');
+				<span class="fragment" data-fragment-index="5">.format(this.appConfig.getDateFormat());</span>
     }
     return result;
   }
@@ -780,17 +781,17 @@ export class DateFormatValueConverter {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">import {DateFormatValueConverter} from
+<span class="fragment" data-fragment-index="6">import {DateFormatValueConverter} from
 	'../src/date-format';</span>
 
-<span class="fragment" data-fragment-index="2">class AppConfigStub {
+<span class="fragment" data-fragment-index="7">class AppConfigStub {
   getDateFormat() {
     return 'MMMM Do YYYY';
   }
 }</span>
 
-<span class="fragment" data-fragment-index="3">describe('Date Format', () => {</span>
-  <span class="fragment" data-fragment-index="5">let dateFormat;
+<span class="fragment" data-fragment-index="8">describe('Date Format', () => {</span>
+  <span class="fragment" data-fragment-index="9">let dateFormat;
   let mockAC;
 
   beforeEach(() => {
@@ -799,15 +800,18 @@ export class DateFormatValueConverter {
 			new DateFormatValueConverter(mockAC);
   });</span>
 
-  <span class="fragment" data-fragment-index="6">it('Returns a formatted date', () => {
+  <span class="fragment" data-fragment-index="10">it('Returns a formatted date', () => {
     let value = '2016-04-30';
     expect(dateFormat.toView(value))
 			.toEqual('April 30th 2016');
   });</span>
-<span class="fragment" data-fragment-index="3">});</span>
+<span class="fragment" data-fragment-index="8">});</span>
 								</code></pre>
 							</div>
 						</div>
+						<p class="fragment" data-fragment-index="11">
+							Can also use Jasmine's <a href="http://jasmine.github.io/2.0/introduction.html#section-Spies">spyOn</a> to track and verify mocked calls.
+						</p>
 					</section>
 
           <section>
