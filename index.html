@@ -816,21 +816,16 @@ export class DateFormatValueConverter {
 
           <section>
             <h2>Unit Test Setup</h2>
-            <h3>Same tooling as other frameworks</h3>
+						<img src="images/jasmine-logo.png" alt="jasmine logo" class="no-border">
+						<img src="images/karma-logo.png" width="160" height="160" alt="karma logo" class="no-border">
             <ul>
-              <li>Jasmine to write the tests (describe, it)</li>
-              <li>Karma to run in multiple browsers</li>
-              <li>Gulp to specify alternate Karma configurations</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>Unit Test Setup</h2>
-            <h3>Karma Configuration</h3>
-            <ul>
-              <li><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
-              <li><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
-              <li>See an <a href="https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">example</a> of Karma configuration for Aurelia.</li>
+              <li class="fragment">Jasmine to write the tests.</li>
+              <li class="fragment">Karma to run the tests, with plugins:</li>
+							<ul>
+								<li class="fragment"><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
+	              <li class="fragment"><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
+								<li class="fragment"><a href="https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">Example</a> Karma configuration for Aurelia.</li>
+							</ul>
             </ul>
           </section>
 
