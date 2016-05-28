@@ -597,7 +597,7 @@ script.next().value.then((r) => {
 							</div>
 							<div class="right-side">
 								<ul>
-									<li class="fragment">No boilerplate imposed by framework (cough Angular 1).</li>
+									<li class="fragment">No boilerplate imposed by framework <span class="fragment">(cough Angular 1)</span></li>
 									<li class="fragment">Constructor based dependency injection makes it trivial to provide mock dependencies.</li>
 								</ul>
 							</div>
@@ -629,7 +629,7 @@ script.next().value.then((r) => {
 		foo = new Foo();
 	});</span>
 
-	<span class="fragment" data-fragment-index="4">it('Does something', () => {</span>
+	<span class="fragment" data-fragment-index="4">it('Returns something', () => {</span>
 		<span class="fragment" data-fragment-index="5">let result = foo.doSomething();</span>
 		<span class="fragment" data-fragment-index="6">expect(result).toEqual('foo');</span>
 	<span class="fragment" data-fragment-index="4">});</span>
@@ -700,7 +700,7 @@ export class Welcome {
 						</div>
 					</section>
 
-          <section data-state="side-by-side">
+          <section data-state="side-by-side" data-transition="none">
             <h2>Example: Value Converter</h2>
 						<div class="container">
 							<div class="left-side">
@@ -815,7 +815,7 @@ export class DateFormatValueConverter {
 					</section>
 
           <section>
-            <h2>Unit Test Setup</h2>
+            <h2>Unit Test Tooling</h2>
 						<img src="images/jasmine-logo.png" alt="jasmine logo" class="no-border">
 						<img src="images/karma-logo.png" width="160" height="160" alt="karma logo" class="no-border">
             <ul>
@@ -856,6 +856,7 @@ export class DateFormatValueConverter {
 							<div class="right-side">
 								<ul>
 									<li class="fragment">Developed for Angular, but also supports Aurelia with a plugin.</li>
+									<li class="fragment">Makes working with Selenium easier.</li>
 									<li class="fragment">Browser interactions return promises, Jasmine assertions patched to wait for resolve</li>
 									<li class="fragment">Knows when Aurelia page has finished loading.</li>
 									<li class="fragment">Locators to find elements by binding rather than DOM positioning.</li>
