@@ -611,25 +611,31 @@ script.next().value.then((r) => {
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import module</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Instantiate class</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Invoke class methods</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Make assertions</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Describe the test</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Instantiate class</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Add a test</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Invoke class methods</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="6">Make assertion</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="7">Add more tests...</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim  data-noescape>
 <span class="fragment" data-fragment-index="1">import {Foo} from '../src/foo';</span>
 
-<span class="fragment" data-fragment-index="2">describe('Foo', () => {
-	let foo;
+<span class="fragment" data-fragment-index="2">describe('Foo', () => {</span>
+	<span class="fragment" data-fragment-index="3">let foo;
 	beforeEach(() => {
 		foo = new Foo();
 	});</span>
 
-	<span class="fragment" data-fragment-index="3">it('Does something', () => {
-		let result = foo.doSomething();</span>
-		<span class="fragment" data-fragment-index="4">expect(result).toEqual('foo');</span>
-	<span class="fragment" data-fragment-index="3">});</span>
+	<span class="fragment" data-fragment-index="4">it('Does something', () => {</span>
+		<span class="fragment" data-fragment-index="5">let result = foo.doSomething();</span>
+		<span class="fragment" data-fragment-index="6">expect(result).toEqual('foo');</span>
+	<span class="fragment" data-fragment-index="4">});</span>
+	<span class="fragment" data-fragment-index="7">it('Something else', () => {
+		// ...
+	});</span>
 <span class="fragment" data-fragment-index="2">});</span>
 								</code></pre>
 							</div>
@@ -774,31 +780,31 @@ export class DateFormatValueConverter {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-import {DateFormatValueConverter} from
-	'../../src/date-format';
+<span class="fragment" data-fragment-index="1">import {DateFormatValueConverter} from
+	'../src/date-format';</span>
 
-class AppConfigStub {
+<span class="fragment" data-fragment-index="2">class AppConfigStub {
   getDateFormat() {
     return 'MMMM Do YYYY';
   }
-}
+}</span>
 
-describe('Date Format', () => {
-  let dateFormat;
+<span class="fragment" data-fragment-index="3">describe('Date Format', () => {</span>
+  <span class="fragment" data-fragment-index="5">let dateFormat;
   let mockAC;
 
   beforeEach(() => {
     mockAC = new AppConfigStub();
     dateFormat =
 			new DateFormatValueConverter(mockAC);
-  });
+  });</span>
 
-  it('Returns a formatted date', () => {
+  <span class="fragment" data-fragment-index="6">it('Returns a formatted date', () => {
     let value = '2016-04-30';
     expect(dateFormat.toView(value))
 			.toEqual('April 30th 2016');
-  });
-});
+  });</span>
+<span class="fragment" data-fragment-index="3">});</span>
 								</code></pre>
 							</div>
 						</div>
