@@ -670,8 +670,10 @@ script.next().value.then((r) => {
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
 export class Welcome {
-  firstName = 'John';
-  lastName = 'Doe';
+	constructor() {
+		this.firstName = 'John';
+		this.lastName = 'Doe';
+	}
 
   get fullName() {
     return `${this.firstName}
