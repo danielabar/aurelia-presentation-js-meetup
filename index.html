@@ -894,23 +894,30 @@ export class DateFormatValueConverter {
 							<div class="left-side">
 								<ul>
 									<li class="fragment" data-fragment-index="1">Describe block</li>
-									<li class="fragment" data-fragment-index="2">Add a test</li>
-									<li class="fragment" data-fragment-index="3">Find element by binding and input value</li>
-									<li class="fragment" data-fragment-index="4">Make assertions</li>
+									<li class="fragment" data-fragment-index="2">Navigate to app in beforeEach</li>
+									<li class="fragment" data-fragment-index="3">Add a test</li>
+									<li class="fragment" data-fragment-index="4">Find elements by binding</li>
+									<li class="fragment" data-fragment-index="5">Make assertions</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 <span class="fragment" data-fragment-index="1">describe('Welcome Page', () => {</span>
-	<span class="fragment" data-fragment-index="2">it('Displays full name', () => {</span>
-		<span class="fragment" data-fragment-index="3">element(by.valueBind('firstName'))
+
+	<span class="fragment" data-fragment-index="2">beforeEach(() => {
+		browser.loadAndWaitForAureliaPage(
+			'http://localhost:9000');
+	});</span>
+
+	<span class="fragment" data-fragment-index="3">it('Displays full name', () => {</span>
+		<span class="fragment" data-fragment-index="4">element(by.valueBind('firstName'))
 			.clear().sendKeys('John');
 		element(by.valueBind('lastName'))
 			.clear().sendKeys('Smith');</span>
-		<span class="fragment" data-fragment-index="4">expect(element(by.css('.full-name'))
+		<span class="fragment" data-fragment-index="5">expect(element(by.css('.full-name'))
 			.getText())
 			.toEqual('JOHN SMITH');</span>
-	<span class="fragment" data-fragment-index="2">});</span>
+	<span class="fragment" data-fragment-index="3">});</span>
 <span class="fragment" data-fragment-index="1">});</span>
 								</code></pre>
 							</div>
