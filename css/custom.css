@@ -8,10 +8,6 @@
 /* The hackey way to customize        */
 /* ---------------------------------- */
 
-.reveal .slide-background {
-  background-position: 10% 10% !important;
-}
-
 .no-border {
   border: none !important;
   background: none !important;

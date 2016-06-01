@@ -800,23 +800,19 @@ export class DateFormatValueConverter {
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 <span class="fragment" data-fragment-index="6">import {DateFormatValueConverter} from
 	'../src/date-format';</span>
-
 <span class="fragment" data-fragment-index="7">class AppConfigStub {
   getDateFormat() {
     return 'MMMM Do YYYY';
   }
 }</span>
-
 <span class="fragment" data-fragment-index="8">describe('Date Format', () => {</span>
   <span class="fragment" data-fragment-index="9">let dateFormat;
   let mockAC;
-
   beforeEach(() => {
     mockAC = new AppConfigStub();
     dateFormat =
 			new DateFormatValueConverter(mockAC);
   });</span>
-
   <span class="fragment" data-fragment-index="10">it('Returns a formatted date', () => {
     let value = '2016-04-30';
     expect(dateFormat.toView(value))
@@ -925,7 +921,7 @@ export class DateFormatValueConverter {
 
 					</section>
 
-					<section data-state="page-object">
+					<section data-state="page-object" data-transition="none" >
 						<h2>Page Objects</h2>
 						<blockquote cite="https://github.com/angular/protractor/blob/master/docs/page-objects.md">
 							<i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
@@ -936,6 +932,12 @@ export class DateFormatValueConverter {
 						<p>
 							Further reading: <a href="https://github.com/angular/protractor/blob/master/docs/page-objects.md">Protractor Documentation</a>
 						</p>
+					</section>
+
+					<section data-transition="none"
+						data-background-transition="none"
+						data-background-image="images/say-what.gif"
+						data-background-size="80%">
 					</section>
 
 					<section>
@@ -999,8 +1001,7 @@ describe('Welcome Page', () => {
 
 				<!-- BEGIN Daniela: Gotchas -->
 				<section data-transition="convex">
-					<!-- <section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif" data-background-size="80%"> -->
-					<section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif">
+					<section data-transition="fade" data-state="subsection-start" data-background="images/gotchas.gif" data-background-size="80%">
 						<h2 class="extra-large">Gotchas</h2>
 					</section>
 					<section>
