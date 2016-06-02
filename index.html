@@ -879,18 +879,22 @@ export class DateFormatValueConverter {
 					</section>
 
 					<section>
-						<h2>Experiment Embed Plunker</h2>
-						<iframe style="width: 50%; height: 300px" src="http://embed.plnkr.co/Aj4wqQ" frameborder="0"></iframe>
+						<h2>Welcome Page</h2>
+								<pre class="presentation-code"><code class="hbs" data-trim>
+<input type="text" value.bind="firstName" placeholder="first name">
+<input type="text" value.bind="lastName" placeholder="last name">
+<div class="full-name"> ${fullName | upper}</div>
+								</code></pre>
+						<iframe style="width: 90%; height: 300px" src="http://embed.plnkr.co/livWB7" frameborder="0"></iframe>
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>E2E Example</h2>
+						<h2>Welcome Page E2E Test</h2>
 						<pre class="presentation-code"><code class="hbs" data-trim>
 <input type="text" value.bind="firstName" placeholder="first name">
 <input type="text" value.bind="lastName" placeholder="last name">
-<div class="full-name">${fullName | upper}</div>
+<div class="full-name"> ${fullName | upper}</div>
 						</code></pre>
-
 						<div class="container">
 							<div class="left-side">
 								<ul>
