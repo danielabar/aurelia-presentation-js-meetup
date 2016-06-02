@@ -853,7 +853,7 @@ export class DateFormatValueConverter {
 								<ul>
 									<li class="fragment">Tests are brittle due to dependency on DOM and CSS.</li>
 									<li class="fragment">Browser interaction is asynchronous.</li>
-									<li class="fragment">Complexity for SPA's detecting when page is laoded, routing is complete.</li>
+									<li class="fragment">Complexity for SPA's detecting when page is loaded, routing is complete.</li>
 								</ul>
 							</div>
 						</div>
@@ -950,9 +950,11 @@ export class DateFormatValueConverter {
 						data-background-size="80%">
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Page Object Example</h2>
-						  <pre class="presentation-code"><code class="hljs" data-trim>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code"><code class="hljs" data-trim>
 export class PageObjectWelcome {
 	constructor() { }
 
@@ -960,17 +962,20 @@ export class PageObjectWelcome {
 		return element(by.valueBind('user.firstName'))
 			.clear().sendKeys(value);
 	}
+	setLastName(value) {
+		return element(by.valueBind('user.lastName'))
+			.clear().sendKeys(value);
+	}
 
 	register() {
-		element(by.clickTrigger('register()')).click();
+		element(by.clickTrigger('register()'))
+			.click();
 	}
 }
-							</code></pre>
-					</section>
-
-					<section>
-						<h2>Page Object Usage</h2>
-						<pre class="presentation-code"><code class="hljs" data-trim>
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="fragment 	presentation-code"><code class="hljs" data-trim>
 import {PageObjectWelcome} from './welcome.po';
 
 describe('Welcome Page', () => {
@@ -987,7 +992,13 @@ describe('Welcome Page', () => {
 		...
 	})
 });
-						</code></pre>
+								</code></pre>
+							</div>
+						</div>
+						<ul>
+							<li class="fragment">Test is more legible.</li>
+							<li class="fragment">If template changes, only need to change PO, not every test.</li>
+						</ul>
 					</section>
 
 					<section data-state="side-by-side">
