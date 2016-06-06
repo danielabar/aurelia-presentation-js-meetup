@@ -1011,30 +1011,29 @@ export class PageObjectWelcome {
 								</code></pre>
 							</div>
 							<div class="right-side">
-								<!-- TODO fragment this -->
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-import {PageObjectWelcome} from './welcome.po';
+<span class="fragment" data-fragment-index="1">import {PageObjectWelcome} from './welcome.po';</span>
 
-describe('Welcome Page', () => {
-	let poWelcome;
+<span class="fragment" data-fragment-index="2">describe('Welcome Page', () => {
+	<span class="fragment" data-fragment-index="3">let poWelcome;
 
 	beforeEach(() => {
 		poWelcome = new PageObjectWelcome();
-	});
+	});</span>
 
-	it('Allows user to register', () => {
+	<span class="fragment" data-fragment-index="4">it('Allows user to register', () => {
 		poWelcome.setFirstName('Joe');
 		poWelcome.setLastName('Smith');
 		poWelcome.register();
 		...
-	})
-});
+	})</span>
+<span class="fragment" data-fragment-index="2">});</span>
 								</code></pre>
 							</div>
 						</div>
 						<ul>
-							<li class="fragment">Test is more legible.</li>
-							<li class="fragment">If template changes, only need to change PO, not every test.</li>
+							<li class="fragment" data-fragment-index="5">Test is more legible.</li>
+							<li class="fragment"data-fragment-index="6">If template changes, only need to change PO, not every test.</li>
 						</ul>
 					</section>
 
