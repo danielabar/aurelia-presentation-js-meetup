@@ -897,11 +897,11 @@ export class DateFormatValueConverter {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li class="fragment" data-fragment-index="1">Describe block</li>
-									<li class="fragment" data-fragment-index="2">Navigate to app in beforeEach</li>
-									<li class="fragment" data-fragment-index="3">Add a test</li>
-									<li class="fragment" data-fragment-index="4">Find elements by binding</li>
-									<li class="fragment" data-fragment-index="5">Make assertions</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Describe block</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Navigate to app in beforeEach</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Add a test</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Find elements by binding</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Make assertions</li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -949,9 +949,45 @@ export class DateFormatValueConverter {
 						data-background-size="80%">
 					</section>
 
-					<!-- TODO fragment this for explanation of each step -->
 					<section data-state="side-by-side">
 						<h2>Page Object Example</h2>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Define a class</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Add method to input first name</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Add method to input last name</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Add method to click register button</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+<span class="fragment" data-fragment-index="1">export class PageObjectWelcome {
+	constructor() { }</span>
+
+	<span class="fragment" data-fragment-index="2">setFirstName(value) {
+		return element(
+				by.valueBind('user.firstName'))
+			.clear().sendKeys(value);
+	}</span>
+	<span class="fragment" data-fragment-index="3">setLastName(value) {
+		return element(
+			by.valueBind('user.lastName'))
+			.clear().sendKeys(value);
+	}</span>
+
+	<span class="fragment" data-fragment-index="4">register() {
+		element(by.clickTrigger('register()'))
+			.click();
+	}</span>
+<span class="fragment" data-fragment-index="1">}</span>
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section data-state="side-by-side">
+						<h2>Page Object Usage</h2>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
@@ -975,7 +1011,8 @@ export class PageObjectWelcome {
 								</code></pre>
 							</div>
 							<div class="right-side">
-								<pre class="fragment 	presentation-code"><code class="hljs" data-trim>
+								<!-- TODO fragment this -->
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 import {PageObjectWelcome} from './welcome.po';
 
 describe('Welcome Page', () => {
