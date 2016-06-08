@@ -590,27 +590,27 @@ script.next().value.then((r) => {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li>Make dependencies accessible to consuming code with module import.</li>
-									<li>Delcare dependencies using inject decorator.</li>
-									<li>Aurelia's DI container will construct an instance of the dependency and pass a reference to the constructor.</li>
-									<li>Consuming class can now use the depdendency.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Make dependencies accessible to consuming code with module import.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Delcare dependencies using inject decorator.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Aurelia's DI container will construct an instance of the dependency and pass a reference to the constructor.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Consuming class can now use the depdendency.</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-import {SomeService} from 'path/to/someService';
-import {inject} from 'aurelia-framework';
+<span class="fragment" data-fragment-index="1">import {SomeService} from 'path/to/someService';
+import {inject} from 'aurelia-framework';</span>
 
-@inject(SomeService)
-export class App {
-  constructor(someService) {
+<span class="fragment" data-fragment-index="2">@inject(SomeService)
+export class App {</span>
+  <span class="fragment" data-fragment-index="3">constructor(someService) {
     this.someService = someService;
-  }
-  startTask() {
-    let taskNum = this.someService.startTask();
+  }</span>
+  <span class="fragment" data-fragment-index="4">doSomething() {
+    let result = this.someService.doSomething();
     ...
-  }
-}
+  }</span>
+<span class="fragment" data-fragment-index="2">}</span>
 								</code></pre>
 							</div>
 						</div>
