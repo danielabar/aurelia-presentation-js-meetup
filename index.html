@@ -568,29 +568,30 @@ script.next().value.then((r) => {
 				<section>
 					<section data-state="side-by-side">
 						<h2>Hello Aurelia</h2>
-						<iframe style="width: 80%; height: 300px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
+						<iframe style="width: 70%; height: 270px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li>Specify "aurelia-app" attribute</li>
-									<li>Load module loader scripts</li>
-									<li>Kick off aurelia</li>
-									<li>By convention, Aurelia will look for module named "app"...</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Specify "aurelia-app" attribute</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Load module loader scripts</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Kick off aurelia</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">By convention, Aurelia will look for module named "app"...</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
+&lt;!-- index.html --&gt;
 &lt;html&gt;
 &lt;head&gt;
 	&lt;title&gt;Hello Aurelia&lt;/title&gt;
 &lt;/head&gt;
-&lt;body aurelia-app&gt;
-	&lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;
-	&lt;script src="config.js"&gt;&lt;/script&gt;
-	&lt;script&gt;
+<span class="fragment" data-fragment-index="1">&lt;body aurelia-app&gt;</span>
+	<span class="fragment" data-fragment-index="2">&lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;
+	&lt;script src="config.js"&gt;&lt;/script&gt;</span>
+	<span class="fragment" data-fragment-index="3">&lt;script&gt;
 		System.import('aurelia-bootstrapper');
-	&lt;/script&gt;
-&lt;/body&gt;
+	&lt;/script&gt;</span>
+<span class="fragment" data-fragment-index="1">&lt;/body&gt;</span>
 &lt;/html&gt;
 								</code></pre>
 							</div>
@@ -640,11 +641,6 @@ export class App {
 							</div>
 						</div>
 					</section>
-
-					<!-- <section>
-						<h2>Hello Aurelia Running App</h2>
-						<iframe style="width: 90%; height: 400px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
-					</section> -->
 
 					<section>
 						<h2>Model-View-View Model</h2>
