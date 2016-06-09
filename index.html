@@ -72,9 +72,9 @@
 				<section>
 					<h2>Learn ES2015, Quickly</h2>
 					<hr>
-					<h2 style="color:grey">Aurelia Overview</h2>
+					<h2 style="color:grey">Aurelia from the Trenches</h2>
 					<hr>
-					<h2 style="color:grey">Testing</h2>
+					<h2 style="color:grey">Testing with Aurelia</h2>
 				</section>
 
 				<!-- BEGIN Sean: ES2015 Overview -->
@@ -559,12 +559,12 @@ script.next().value.then((r) => {
 				<section>
 					<h2 style="color:grey">Learn ES2015, Quickly</h2>
 					<hr>
-					<h2>Aurelia Overview</h2>
+					<h2>Aurelia from the Trenches</h2>
 					<hr>
-					<h2 style="color:grey">Testing</h2>
+					<h2 style="color:grey">Testing with Aurelia</h2>
 				</section>
 
-				<!-- BEGIN Mike and Daniela: Aurelia Overview -->
+				<!-- BEGIN Mike and Daniela: Aurelia from the Trenches -->
 				<section>
 					<section>
 						<h2>Hello Aurelia</h2>
@@ -619,15 +619,20 @@ export class App {</span>
 					<section>
 						<h2>Custom Elements and Attributes</h2>
 					</section>
+
+					<section>
+						<h2>Lessons Learned</h2>
+						<h3>TBD: Our experiences...</h3>
+					</section>
 				</section>
 
 				<!-- Connector -->
 				<section>
 					<h2 style="color:grey">Learn ES2015, Quickly</h2>
 					<hr>
-					<h2 style="color:grey">Aurelia Overview</h2>
+					<h2 style="color:grey">Aurelia from the Trenches</h2>
 					<hr>
-					<h2>Testing</h2>
+					<h2>Testing with Aurelia</h2>
 				</section>
 
 				<!-- BEGIN Daniela: Testing -->
@@ -740,169 +745,22 @@ export class Welcome {
 						</div>
 					</section>
 
-					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
-						<div class="content-single">
-							<h2>We want more examples!</h2>
-						</div>
-					</section>
-
-          <section data-state="side-by-side" data-transition="none">
-            <h2>Example: Value Converter</h2>
-						<div class="container">
-							<div class="left-side">
-								<pre class="presentation-code"><code class="hljs" data-trim>
-import moment from 'moment';
-
-export class DateFormatValueConverter {
-	toView(value) {
-		if (value) {
-			return moment(value)
-				.format('MMMM Do YYYY');
-		} else {
-			return '';
-		}
-	}
-}
-								</code></pre>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">import {DateFormatValueConverter} from
-	'../src/date-format.js';</span>
-
-<span class="fragment" data-fragment-index="2">describe('DateFormatValueConverter', () => {</span>
-	<span class="fragment" data-fragment-index="3">let dateFormat;
-	beforeEach(() => {
-		dateFormat =
-			new DateFormatValueConverter();
-	});</span>
-
-	<span class="fragment" data-fragment-index="4">it('Returns a formatted date', () => {
-		let value = '2016-04-30';
-    expect(dateFormat.toView(value))
-			.toEqual('April 30th 2016');
-	});</span>
-	<span class="fragment" data-fragment-index="5">it('Returns empty string when no value', () => {
-		expect(dateFormat.toView())
-			.toEqual('');
-	});</span>
-<span class="fragment" data-fragment-index="2">});<span>
-								</code></pre>
-							</div>
-						</div>
-          </section>
-
-					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
-						<div class="content-single">
-							<h2>What about mocking dependencies?</h2>
-						</div>
-					</section>
-
-					<section data-state="side-by-side">
-						<h2>Example: Mocking Dependencies</h2>
-						<div class="container">
-							<div class="left-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-import moment from 'moment';
-<span class="fragment" data-fragment-index="1">import {inject} from 'aurelia-framework';</span>
-<span class="fragment" data-fragment-index="1">import {AppConfig} from './app-config';</span>
-
-<span class="fragment" data-fragment-index="1">@inject(AppConfig)</span>
-export class DateFormatValueConverter {
-  <span class="fragment" data-fragment-index="2">constructor(appConfig) {
-    this.appConfig = appConfig;
-  }</span>
-  toView(value) {
-    let result = '';
-    if (value) {
-      result = moment(value)
-				// .format('MMMM Do YYYY');
-				<span class="fragment" data-fragment-index="3">.format(this.appConfig.getDateFormat());</span>
-    }
-    return result;
-  }
-}
-								</code></pre>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="5">import {DateFormatValueConverter} from
-	'../src/date-format';</span>
-<span class="fragment" data-fragment-index="6">class AppConfigStub {
-  getDateFormat() {
-    return 'MMMM Do YYYY';
-  }
-}</span>
-<span class="fragment" data-fragment-index="7">describe('Date Format', () => {</span>
-  <span class="fragment" data-fragment-index="8">let dateFormat;
-  let mockAC;
-  beforeEach(() => {
-    mockAC = new AppConfigStub();
-    dateFormat =
-			new DateFormatValueConverter(mockAC);
-  });</span>
-  <span class="fragment" data-fragment-index="9">it('Returns a formatted date', () => {
-    let value = '2016-04-30';
-    expect(dateFormat.toView(value))
-			.toEqual('April 30th 2016');
-  });</span>
-<span class="fragment" data-fragment-index="7">});</span>
-								</code></pre>
-							</div>
-						</div>
-						<p class="fragment" data-fragment-index="10">
-							Can also use Jasmine's <a href="http://jasmine.github.io/2.0/introduction.html#section-Spies">spyOn</a> to track and verify mocked calls.
-						</p>
-					</section>
-
-          <section>
-            <h2>Unit Test Tooling</h2>
-						<div class="image-container">
-							<img src="images/jasmine-logo.png" alt="jasmine logo" class="no-border">
-							<img src="images/karma-logo.png" width="160" height="160" alt="karma logo" class="no-border">
-						</div>
-            <ul>
-              <li class="fragment">Jasmine to write the tests.</li>
-              <li class="fragment">Karma to run the tests, with plugins:</li>
-							<ul>
-								<li class="fragment"><a href="https://github.com/babel/karma-babel-preprocessor">karma-babel-preprocessor</a> for transpilation of src and test files.</li>
-	              <li class="fragment"><a href="https://github.com/Workiva/karma-jspm">karma-jspm</a> for dynamic loading of src and test modules.</li>
-								<li class="fragment"><a href="https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-es2016/karma.conf.js">Example</a> Karma configuration for Aurelia.</li>
-							</ul>
-            </ul>
-          </section>
-
-					<section data-state="side-by-side">
-						<h2>End to End Testing</h2>
-						<h3>Challenges with Selenium</h3>
-						<div class="container">
-							<div class="left-side">
-								<img src="images/selenium-beast.jpg" alt="selenium is a beast" class="no-border">
-							</div>
-							<div class="right-side">
-								<ul>
-									<li class="fragment">Tests are brittle due to dependency on DOM and CSS.</li>
-									<li class="fragment">Browser interaction is asynchronous.</li>
-									<li class="fragment">Complexity for SPA's detecting when page is loaded, routing is complete.</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-
 					<section data-state="side-by-side-rescue">
-						<h2>Protractor to the rescue!</h2>
-						<h3>End to end test framework</h3>
+						<h2>End to end Testing</h2>
 						<div class="container">
-							<div class="left-side">
+							<!-- TBD If can find an image -->
+							<!-- <div class="left-side">
 								<img src="images/squirrel-to-the-rescue-large.jpg" class="no-border" alt="squirrel to the rescue">
-							</div>
+							</div> -->
 							<div class="right-side">
 								<ul>
-									<li class="fragment">Developed for Angular, but also supports Aurelia with a plugin.</li>
-									<li class="fragment">Makes working with Selenium easier.</li>
-									<li class="fragment">Browser interactions return promises, Jasmine assertions patched to wait for resolve</li>
-									<li class="fragment">Knows when Aurelia page has finished loading.</li>
-									<li class="fragment">Locators to find elements by binding rather than DOM positioning.</li>
+									<li>Bad news, its harder than unit testing</li>
+									<li>Good news, its easier with Protractor</li>
+									<!-- <li class="fragment">Developed for Angular, but also supports Aurelia with a plugin.</li> -->
+									<!-- <li class="fragment">Makes working with Selenium easier.</li> -->
+									<!-- <li class="fragment">Browser interactions return promises, Jasmine assertions patched to wait for resolve</li> -->
+									<!-- <li class="fragment">Knows when Aurelia page has finished loading.</li> -->
+									<!-- <li class="fragment">Locators to find elements by binding rather than DOM positioning.</li> -->
 								</ul>
 							</div>
 						</div>
@@ -910,6 +768,7 @@ export class DateFormatValueConverter {
 
 					<section>
 						<h2>Welcome Page</h2>
+						<!-- TODO Use simpler plunker with just welcome page, no nav clutter  -->
 								<pre class="presentation-code"><code class="hbs" data-trim>
 <input type="text" value.bind="firstName" placeholder="first name">
 <input type="text" value.bind="lastName" placeholder="last name">
@@ -920,105 +779,7 @@ export class DateFormatValueConverter {
 
 					<section data-state="side-by-side">
 						<h2>Welcome Page E2E Test</h2>
-						<pre class="presentation-code"><code class="hbs" data-trim>
-<input type="text" value.bind="firstName" placeholder="first name">
-<input type="text" value.bind="lastName" placeholder="last name">
-<div class="full-name"> ${fullName | upper}</div>
-						</code></pre>
-						<div class="container">
-							<div class="left-side">
-								<ul>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Describe block</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Navigate to app in beforeEach</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Add a test</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Find elements by binding</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Make assertions</li>
-								</ul>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">describe('Welcome Page', () => {</span>
-
-	<span class="fragment" data-fragment-index="2">beforeEach(() => {
-		browser.loadAndWaitForAureliaPage(
-			'http://localhost:9000');
-	});</span>
-
-	<span class="fragment" data-fragment-index="3">it('Displays full name', () => {</span>
-		<span class="fragment" data-fragment-index="4">element(by.valueBind('firstName'))
-			.clear().sendKeys('John');
-		element(by.valueBind('lastName'))
-			.clear().sendKeys('Smith');</span>
-		<span class="fragment" data-fragment-index="5">expect(element(by.css('.full-name'))
-			.getText())
-			.toEqual('JOHN SMITH');</span>
-	<span class="fragment" data-fragment-index="3">});</span>
-<span class="fragment" data-fragment-index="1">});</span>
-								</code></pre>
-							</div>
-						</div>
-
-					</section>
-
-					<section data-state="page-object" data-transition="none" >
-						<h2>Page Objects</h2>
-						<p>
-							From the <a href="https://github.com/angular/protractor/blob/master/docs/page-objects.md">Protractor Documentation</a>
-						</p>
-						<blockquote cite="https://github.com/angular/protractor/blob/master/docs/page-objects.md">
-							<i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
-							When writing end-to-end tests, a common pattern is to use Page Objects.
-							Page Objects help you write cleaner tests by encapsulating information about the elements on your application page.
-							A Page Object can be reused across multiple tests, and if the template of your application changes,
-							you only need to update the Page Object.
-						</blockquote>
-					</section>
-
-					<section data-transition="none"
-						data-background-transition="none"
-						data-background-image="images/say-what.gif"
-						data-background-size="80%">
-					</section>
-
-					<section data-state="side-by-side">
-						<h2>Page Object Example</h2>
-						<div class="container">
-							<div class="left-side">
-								<ul>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Define a class</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Add method to input first name</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Add method to input last name</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Add method to click register button</li>
-								</ul>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">export class PageObjectWelcome {
-	constructor() { }</span>
-
-	<span class="fragment" data-fragment-index="2">setFirstName(value) {
-		return element(
-				by.valueBind('user.firstName'))
-			.clear().sendKeys(value);
-	}</span>
-	<span class="fragment" data-fragment-index="3">setLastName(value) {
-		return element(
-			by.valueBind('user.lastName'))
-			.clear().sendKeys(value);
-	}</span>
-
-	<span class="fragment" data-fragment-index="4">register() {
-		element(by.clickTrigger('register()'))
-			.click();
-	}</span>
-<span class="fragment" data-fragment-index="1">}</span>
-								</code></pre>
-							</div>
-						</div>
-					</section>
-
-					<section data-state="side-by-side">
-						<h2>Page Object Usage</h2>
+						<p>Write a Page Object class to encapsulate browser interactions.</p>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
@@ -1063,13 +824,12 @@ export class PageObjectWelcome {
 							</div>
 						</div>
 						<ul>
-							<li class="fragment" data-fragment-index="5">Test is more legible.</li>
 							<li class="fragment"data-fragment-index="6">If template changes, only need to change PO, not every test.</li>
 						</ul>
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>Still some work to be done</h2>
+						<h2>Our experiences with Aurelia and E2E</h2>
 						<div class="container">
 							<div class="left">
 								<img src="images/lego-house-work-in-progress-large.jpg" width="700px" class="no-border" alt="work in progress">
