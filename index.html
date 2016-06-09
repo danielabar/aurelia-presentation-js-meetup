@@ -642,9 +642,35 @@ export class App {
 						</div>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Model-View-View Model</h2>
-						<p>TODO: Diagram and explain how Aurelia implements MVVM</p>
+						<div class="container">
+							<div class="col">
+								Model
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+{
+	id: 1,
+	title: 'Star Wars',
+	year: '1979'
+}
+								</pre></code>
+							<div class="col">View Model</div>
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+export class Movie {
+	constructor() {
+		...
+	}
+	activate() {
+		...
+	}
+	save() {
+		...
+	}
+}
+								</pre></code>
+							</div>
+							<div class="col">View</div>
+						</div>
 					</section>
 
 					<section>
