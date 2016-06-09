@@ -566,9 +566,85 @@ script.next().value.then((r) => {
 
 				<!-- BEGIN Mike and Daniela: Aurelia from the Trenches -->
 				<section>
-					<section>
+					<section data-state="side-by-side">
 						<h2>Hello Aurelia</h2>
-						<p>TODO: Simplest possible app with conventions index.html, app.js/html</p>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li>Specify "aurelia-app" attribute</li>
+									<li>Load module loader scripts</li>
+									<li>Kick off aurelia</li>
+									<li>By convention, Aurelia will look for module named "app"...</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;Hello Aurelia&lt;/title&gt;
+&lt;/head&gt;
+&lt;body aurelia-app&gt;
+	&lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;
+	&lt;script src="config.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		System.import('aurelia-bootstrapper');
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section data-state="side-by-side">
+						<h2>Hello Aurelia: View and View Model</h2>
+						<p>
+							By convention, Aurelia looks for view and view model of same name in same directory,
+							constructs an instance of the view model, and applies all the binding expressions.
+						</p>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
+&lt;!-- app.html --&gt;
+&lt;template&gt;
+  &lt;h2&gt;${heading}&lt;/h2&gt;
+  &lt;form role="form" submit.delegate="submit()"&gt;
+    &lt;input type="text" value.bind="firstName"&gt;
+    &lt;input type="text" value.bind="lastName"&gt;
+    &lt;p&gt;${fullName | upper}&lt;/p&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/template&gt;
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+// app.js
+export class App {
+  constructor() {
+    this.heading = 'Hello Aurlelia!';
+    this.firstName = 'John';
+    this.lastName = 'Doe';
+  }
+
+  get fullName(){
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  submit(){
+    alert(`Welcome, ${this.fullName}!`);
+  }
+}
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h2>Hello Aurelia Running App</h2>
+						<!-- <iframe style="width: 90%; height: 300px" src="http://embed.plnkr.co/livWB7" frameborder="0"></iframe> -->
+						<iframe style="width: 90%; height: 300px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
+						<!-- <iframe style="width: 90%; height: 400px" src="https://embed.plnkr.co/Pb2XAi/" frameborder="0"></iframe> -->
 					</section>
 
 					<section>
@@ -766,17 +842,6 @@ export class Welcome {
 						</div>
 					</section>
 
-					<section>
-						<h2>Welcome Page</h2>
-						<!-- TODO Use simpler plunker with just welcome page, no nav clutter  -->
-								<pre class="presentation-code"><code class="hbs" data-trim>
-<input type="text" value.bind="firstName" placeholder="first name">
-<input type="text" value.bind="lastName" placeholder="last name">
-<div class="full-name"> ${fullName | upper}</div>
-								</code></pre>
-						<iframe style="width: 90%; height: 300px" src="http://embed.plnkr.co/livWB7" frameborder="0"></iframe>
-					</section>
-
 					<section data-state="side-by-side">
 						<h2>Welcome Page E2E Test</h2>
 						<p>Write a Page Object class to encapsulate browser interactions.</p>
@@ -811,6 +876,8 @@ export class PageObjectWelcome {
 
 	beforeEach(() => {
 		poWelcome = new PageObjectWelcome();
+		browser.loadAndWaitForAureliaPage(
+				'http://localhost:9000');
 	});</span>
 
 	<span class="fragment" data-fragment-index="4">it('Allows user to register', () => {
@@ -884,9 +951,7 @@ export class PageObjectWelcome {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-
 		<script>
-
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -910,8 +975,6 @@ export class PageObjectWelcome {
 			 		{ src: 'plugin/notes-server/client.js', async: true }
 				]
 			});
-
 		</script>
-		<script src="js/custom.js"></script>
 	</body>
 </html>
