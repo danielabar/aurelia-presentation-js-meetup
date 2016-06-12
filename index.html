@@ -566,7 +566,7 @@ script.next().value.then((r) => {
 				<section>
 					<section data-state="side-by-side">
 						<h2>Hello Aurelia</h2>
-						<iframe style="width: 70%; height: 270px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
+						<iframe style="width: 70%; height: 300px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
 						<div class="container">
 							<div class="left-side">
 								<ul>
@@ -641,7 +641,7 @@ export class App {
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>Model-View-View Model</h2>
+						<h2>Model-View-View Model (MVVM)</h2>
 						<h3>Separation of Concerns</h3>
 						<div class="container bordered">
 							<div class="col fragment">
@@ -653,6 +653,7 @@ export class App {
 	year: '1979'
 }
 								</pre></code>
+								<p>Typically data fetched from service.</p>
 							</div>
 							<div class="col fragment">
 								<h3>View Model</h3>
@@ -662,13 +663,14 @@ export class Movie {
 		...
 	}
 	activate() {
-		...
+		this.movie = ...
 	}
 	save() {
 		...
 	}
 }
 								</pre></code>
+								<p>Presents data to view and handles interactions.</p>
 							</div>
 							<div class="col fragment">
 								<h3>View</h3>
@@ -681,6 +683,7 @@ export class Movie {
 	</button>
 </form>
 								</code></pre>
+								<p>Markup and binding expressions.</p>
 						</div>
 					</section>
 

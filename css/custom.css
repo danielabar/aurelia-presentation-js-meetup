@@ -84,6 +84,11 @@
   width: 33%;
 }
 
+.side-by-side .col p {
+  margin-left: 20px;  
+  text-align: left;
+}
+
 .enough-foo .content {
   margin-top: -175px;
 }
