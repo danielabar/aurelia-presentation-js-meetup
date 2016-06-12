@@ -695,6 +695,17 @@ export class Movie {
 						<h2>Routing</h2>
 					</section>
 
+					<section>
+						<h2>Screen Activation Lifecycle</h2>
+						<h3>TBD if there should be a slide just for this...</h3>
+						<ul>
+							<li>canActivate(params)</li>
+							<li>activate(params)</li>
+							<li>canDeactivate()</li>
+							<li>deactivate()</li>
+						</ul>
+					</section>
+
 					<section data-state="side-by-side">
 						<h2>Dependency Injection</h2>
 						<h3>No magic!</h3>
@@ -719,7 +730,7 @@ export class App {</span>
   <span class="fragment" data-fragment-index="4">constructor(someService) {
     this.someService = someService;
   }</span>
-	
+
   <span class="fragment" data-fragment-index="5">doSomething() {
     let result = this.someService.doSomething();
     ...
@@ -728,14 +739,21 @@ export class App {</span>
 								</code></pre>
 							</div>
 						</div>
-						<!-- <ul>
-							<li class="fragment" data-fragment-index="6">Default lifetime of injected dependencies is singleton</li>
-							<li class="fragment" data-fragment-index="6">Can also be declared transient</li>
-						</ul> -->
 					</section>
 
 					<section>
 						<h2>Custom Elements and Attributes</h2>
+					</section>
+
+					<section>
+						<h2>The Component Lifecycle</h2>
+						<ul>
+							<li>constructor()</li>
+							<li>bind()</li>
+							<li>attached()</li>
+							<li>detached()</li>
+							<li>unbind()</li>
+						</ul>
 					</section>
 
 					<section data-state="side-by-side">
