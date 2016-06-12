@@ -74,6 +74,16 @@
   flex-shrink: 1;
 }
 
+.side-by-side .bordered {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.side-by-side .col {
+  width: 33%;
+}
+
 .enough-foo .content {
   margin-top: -175px;
 }

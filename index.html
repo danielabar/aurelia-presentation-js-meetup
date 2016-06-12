@@ -642,9 +642,10 @@ export class App {
 
 					<section data-state="side-by-side">
 						<h2>Model-View-View Model</h2>
-						<div class="container">
-							<div class="col">
-								Model
+						<h3>Separation of Concerns</h3>
+						<div class="container bordered">
+							<div class="col fragment">
+								<h3>Model</h3>
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 {
 	id: 1,
@@ -652,7 +653,9 @@ export class App {
 	year: '1979'
 }
 								</pre></code>
-							<div class="col">View Model</div>
+							</div>
+							<div class="col fragment">
+								<h3>View Model</h3>
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
 export class Movie {
 	constructor() {
@@ -667,7 +670,17 @@ export class Movie {
 }
 								</pre></code>
 							</div>
-							<div class="col">View</div>
+							<div class="col fragment">
+								<h3>View</h3>
+								<pre class="presentation-code"><code class="hbs" data-trim>
+<h1>
+	${movie.title}
+</h1>
+<form>
+	<button click.trigger="save()">
+	</button>
+</form>
+								</code></pre>
 						</div>
 					</section>
 
