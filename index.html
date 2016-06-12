@@ -713,6 +713,7 @@ export class Movie {
 export class Anywhere {
 
 	configureRouter(config, router) {
+		this.router = router;
 		config.map([
 			{route: ['', 'welcome'], moduleId: 'welcome'},
 			{route: 'users', moduleId: 'users'},
@@ -725,15 +726,62 @@ export class Anywhere {
 						</div>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Screen Activation Lifecycle</h2>
-						<h3>TBD if there should be a slide just for this...</h3>
-						<ul>
-							<li>canActivate(params)</li>
-							<li>activate(params)</li>
-							<li>canDeactivate()</li>
-							<li>deactivate()</li>
-						</ul>
+						<h3>When a url pattern is matched by the router...</h3>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">If view model implements <code>activate()</code> method, its invoked with url parameters.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">If a promise is returned from activate, Aurelia will wait for it to resolve before rendering view.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">When user navigates away from this view, <code>deactivate()</code> is called, opportunity to clean up.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Also have <code>canActivate()</code> and <code>canDeactivate()</code></li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+export class User {
+	constructor() { ... }
+
+	<span class="fragment" data-fragment-index="1">activate(params) {</span>
+		<span class="fragment" data-fragment-index="2">// assume this.userService is available
+		// and returns a promise
+		return this.userService.getUser(params.id)
+			.then(user => this.user = user)
+			.catch(err => ... error handling)</span>
+	<span class="fragment" data-fragment-index="1">}</span>
+
+	<span class="fragment" data-fragment-index="3">deactivate() { ... }</span>
+}
+								</code></pre>
+							</div>
+						</div>
+					</section>
+
+					<section data-state="side-by-side">
+						<h2>Dynamic Navigation</h2>
+						<p>Given that view model has a reference to router, navigation can be built dynamically.</p>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim>
+configureRouter(config, router) {
+  this.router = router;
+  config.map([...]);
+}
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim>
+&lt;ul class="nav"&gt;
+  &lt;li
+		repeat.for="route of router.navigation"
+		class="${route.isActive ? 'active' : ''}"&gt;
+    &lt;a href.bind="route.href"&gt;${route.title}&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+								</code></pre>
+							</div>
+						</div>
 					</section>
 
 					<section data-state="side-by-side">
