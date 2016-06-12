@@ -691,8 +691,38 @@ export class Movie {
 						<h2>Data Binding</h2>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Routing</h2>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment" data-fragment-index="1">Define container for routing view with <code>&lt;router-view&gt;</code> element.</li>
+									<li class="fragment" data-fragment-index="2">Implement <code>configureRouter()</code> method in view model.</li>
+									<li class="fragment" data-fragment-index="3">Define modules (view/view model pairs) for routes (welcome.js, welcome.html, users.js, etc.)</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hbs" data-trim>
+<!-- anywhere.html -->
+<template>
+	<router-view></router-view>
+</template>
+								</code></pre>
+								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim>
+// anywhere.js
+export class Anywhere {
+
+	configureRouter(config, router) {
+		config.map([
+			{route: ['', 'welcome'], moduleId: 'welcome'},
+			{route: 'users', moduleId: 'users'},
+			{route: 'users/:id', moduleId: 'userdetail'}
+		]);
+	}
+}
+								</code></pre>
+							</div>
+						</div>
 					</section>
 
 					<section>
