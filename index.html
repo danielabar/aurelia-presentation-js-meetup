@@ -704,7 +704,7 @@ export class Movie {
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import dependencies.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import Aurelia injection.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Delcare dependencies using inject decorator.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Aurelia's DI container constructs an instance of the dependency and passes a reference to constructor.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">DI container constructs instance of the dependency and passes reference to constructor.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Consuming class can now use the depdendency.</li>
 									<li class="fragment" data-fragment-index="6">Default lifetime of injected dependencies is singleton (can also be declared transient)</li>
 								</ul>
@@ -719,6 +719,7 @@ export class App {</span>
   <span class="fragment" data-fragment-index="4">constructor(someService) {
     this.someService = someService;
   }</span>
+	
   <span class="fragment" data-fragment-index="5">doSomething() {
     let result = this.someService.doSomething();
     ...
