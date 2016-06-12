@@ -701,34 +701,36 @@ export class Movie {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Make dependencies accessible to consuming code with module import.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Delcare dependencies using inject decorator.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Aurelia's DI container will construct an instance of the dependency and pass a reference to the constructor.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Consuming class can now use the depdendency.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import dependencies.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import Aurelia injection.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Delcare dependencies using inject decorator.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Aurelia's DI container constructs an instance of the dependency and passes a reference to constructor.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Consuming class can now use the depdendency.</li>
+									<li class="fragment" data-fragment-index="6">Default lifetime of injected dependencies is singleton (can also be declared transient)</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">import {SomeService} from 'path/to/someService';
-import {inject} from 'aurelia-framework';</span>
+<span class="fragment" data-fragment-index="1">import {SomeService} from 'path/to/someService';</span>
+<span class="fragment" data-fragment-index="2">import {inject} from 'aurelia-framework';</span>
 
-<span class="fragment" data-fragment-index="2">@inject(SomeService)
+<span class="fragment" data-fragment-index="3">@inject(SomeService)
 export class App {</span>
-  <span class="fragment" data-fragment-index="3">constructor(someService) {
+  <span class="fragment" data-fragment-index="4">constructor(someService) {
     this.someService = someService;
   }</span>
-  <span class="fragment" data-fragment-index="4">doSomething() {
+  <span class="fragment" data-fragment-index="5">doSomething() {
     let result = this.someService.doSomething();
     ...
   }</span>
-<span class="fragment" data-fragment-index="2">}</span>
+<span class="fragment" data-fragment-index="3">}</span>
 								</code></pre>
 							</div>
 						</div>
-						<ul>
-							<li>Default lifetime of injected dependencies is singleton</li>
-							<li>Can also be declared transient</li>
-						</ul>
+						<!-- <ul>
+							<li class="fragment" data-fragment-index="6">Default lifetime of injected dependencies is singleton</li>
+							<li class="fragment" data-fragment-index="6">Can also be declared transient</li>
+						</ul> -->
 					</section>
 
 					<section>
