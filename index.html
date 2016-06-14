@@ -687,8 +687,36 @@ export class Movie {
 						</div>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Data Binding</h2>
+						<div class="container">
+							<div class="left-side">
+								<ul>
+									<li class="fragment" data-fragment-index="1">Append <code>.bind</code> to any html or custom attribute.</li>
+									<li class="fragment" data-fragment-index="2">Defaults to two-way for &lt;input&gt;, one-way for everything else.</li>
+									<li class="fragment" data-fragment-index="3">Want more control? <code>.one-way</code>, <code>.two-way</code>, <code>.one-time</code>.</li>
+									<li class="fragment" data-fragment-index="4"><a href="https://github.com/aurelia/documentation/blob/master/English/docs.md#adaptive-binding">Adaptive Binding</a> picks optimal observation strategy &amp; minimizes dirty checking.</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
+<span class="fragment" data-fragment-index="5">&lt;input type="text" value.bind="user.name"&gt;</span>
+
+<span class="fragment" data-fragment-index="6">&lt;div class.bind="row.isActive ? 'active' : ''"&gt;
+	some content
+&lt;/div&gt;</span>
+
+<span class="fragment" data-fragment-index="7">&lt;div show.bind="hasError" class="error"&gt;
+	${err.message}
+&lt;/div&gt;</span>
+
+<span class="fragment" data-fragment-index="8">&lt;my-datepicker data.two-way="user.dob"&gt;
+&lt;/my-datepicker&gt;</span>
+
+
+								</code></pre>
+							</div>
+						</div>
 					</section>
 
 					<section data-state="side-by-side">
@@ -758,6 +786,7 @@ export class User {
 						</div>
 					</section>
 
+					<!-- Consider removing this -->
 					<section data-state="side-by-side">
 						<h2>Dynamic Navigation</h2>
 						<p>Given that view model has a reference to router, navigation can be built dynamically.</p>
