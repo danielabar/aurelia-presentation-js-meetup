@@ -566,14 +566,12 @@ script.next().value.then((r) => {
 				<section>
 					<section data-state="side-by-side">
 						<h2>Hello Aurelia</h2>
-						<iframe style="width: 70%; height: 300px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
 						<div class="container">
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Specify "aurelia-app" attribute</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Load module loader scripts</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Kick off aurelia</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">By convention, Aurelia will look for module named "app"...</li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -605,7 +603,7 @@ script.next().value.then((r) => {
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
-&lt;!-- app.html --&gt;
+&lt;!-- View: app.html --&gt;
 &lt;template&gt;
   &lt;h2&gt;${heading}&lt;/h2&gt;
   &lt;form role="form" submit.delegate="submit()"&gt;
@@ -619,7 +617,7 @@ script.next().value.then((r) => {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-// app.js
+// View model: app.js
 export class App {
   constructor() {
     this.heading = 'Hello Aurlelia!';
@@ -638,6 +636,11 @@ export class App {
 								</code></pre>
 							</div>
 						</div>
+					</section>
+
+					<section>
+						<h2>Hello Aurelia Demo</h2>
+						<iframe style="width: 70%; height: 300px" src="http://embed.plnkr.co/Pb2XAi" frameborder="0"></iframe>
 					</section>
 
 					<section data-state="side-by-side">
@@ -687,7 +690,7 @@ export class Movie {
 						</div>
 					</section>
 
-					<section data-state="side-by-side">
+					<!-- <section data-state="side-by-side">
 						<h2>Data Binding</h2>
 						<div class="container">
 							<div class="left-side">
@@ -717,7 +720,7 @@ export class Movie {
 								</code></pre>
 							</div>
 						</div>
-					</section>
+					</section> -->
 
 					<section data-state="side-by-side">
 						<h2>Routing</h2>
@@ -786,28 +789,33 @@ export class User {
 						</div>
 					</section>
 
-					<!-- Consider removing this -->
 					<section data-state="side-by-side">
-						<h2>Dynamic Navigation</h2>
-						<p>Given that view model has a reference to router, navigation can be built dynamically.</p>
+						<h2>Data Binding</h2>
 						<div class="container">
 							<div class="left-side">
-								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim>
-configureRouter(config, router) {
-  this.router = router;
-  config.map([...]);
-}
-								</code></pre>
+								<ul>
+									<li class="fragment" data-fragment-index="1">Append <code>.bind</code> to any html or custom attribute.</li>
+									<li class="fragment" data-fragment-index="2">Defaults to two-way for &lt;input&gt;, one-way for everything else.</li>
+									<li class="fragment" data-fragment-index="3">Want more control? <code>.one-way</code>, <code>.two-way</code>, <code>.one-time</code>.</li>
+									<li class="fragment" data-fragment-index="4"><a href="https://github.com/aurelia/documentation/blob/master/English/docs.md#adaptive-binding">Adaptive Binding</a> picks optimal observation strategy &amp; minimizes dirty checking.</li>
+								</ul>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim>
-&lt;ul class="nav"&gt;
-  &lt;li
-		repeat.for="route of router.navigation"
-		class="${route.isActive ? 'active' : ''}"&gt;
-    &lt;a href.bind="route.href"&gt;${route.title}&lt;/a&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
+<span class="fragment" data-fragment-index="5">&lt;input type="text" value.bind="user.name"&gt;</span>
+
+<span class="fragment" data-fragment-index="6">&lt;div class.bind="row.isActive ? 'active' : ''"&gt;
+	some content
+&lt;/div&gt;</span>
+
+<span class="fragment" data-fragment-index="7">&lt;div show.bind="hasError" class="error"&gt;
+	${err.message}
+&lt;/div&gt;</span>
+
+<span class="fragment" data-fragment-index="8">&lt;my-datepicker data.two-way="user.dob"&gt;
+&lt;/my-datepicker&gt;</span>
+
+
 								</code></pre>
 							</div>
 						</div>
