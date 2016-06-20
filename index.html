@@ -565,13 +565,15 @@ script.next().value.then((r) => {
 				<!-- BEGIN Daniela: Hello Aurelia -->
 				<section>
 					<section data-state="side-by-side">
-						<h2>Hello Aurelia</h2>
+						<h2>Let's bootstrap an app</h2>
 						<div class="container">
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Specify "aurelia-app" attribute</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Load module loader scripts</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Kick off aurelia</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">System.js implements the ES2015 module loader</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">config.js configures the loader (mostly auto generated)</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Kick off aurelia</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">By <em>convention</em>, Aurelia looks for module named "app" to render...</li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -582,9 +584,9 @@ script.next().value.then((r) => {
 	&lt;title&gt;Hello Aurelia&lt;/title&gt;
 &lt;/head&gt;
 <span class="fragment" data-fragment-index="1">&lt;body aurelia-app&gt;</span>
-	<span class="fragment" data-fragment-index="2">&lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;
-	&lt;script src="config.js"&gt;&lt;/script&gt;</span>
-	<span class="fragment" data-fragment-index="3">&lt;script&gt;
+	<span class="fragment" data-fragment-index="2">&lt;script src="jspm_packages/system.js"&gt;&lt;/script&gt;</span>
+	<span class="fragment" data-fragment-index="3">&lt;script src="config.js"&gt;&lt;/script&gt;</span>
+	<span class="fragment" data-fragment-index="4">&lt;script&gt;
 		System.import('aurelia-bootstrapper');
 	&lt;/script&gt;</span>
 <span class="fragment" data-fragment-index="1">&lt;/body&gt;</span>
@@ -595,28 +597,10 @@ script.next().value.then((r) => {
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>Hello Aurelia: View and View Model</h2>
-						<p>
-							By convention, Aurelia looks for view and view model of same name in same directory,
-							constructs an instance of the view model, and applies all the binding expressions.
-						</p>
+						<h2>View and View Model Pair</h2>
 						<div class="container">
 							<div class="left-side">
-								<pre class="presentation-code"><code class="hbs" data-trim data-noescape>
-&lt;!-- View: app.html --&gt;
-&lt;template&gt;
-  &lt;h2&gt;${heading}&lt;/h2&gt;
-  &lt;form role="form" submit.delegate="submit()"&gt;
-    &lt;input type="text" value.bind="firstName"&gt;
-    &lt;input type="text" value.bind="lastName"&gt;
-    &lt;p&gt;${fullName | upper}&lt;/p&gt;
-    &lt;button type="submit"&gt;Submit&lt;/button&gt;
-  &lt;/form&gt;
-&lt;/template&gt;
-								</code></pre>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+								<pre class="presentation-code fragment"><code class="hbs" data-trim data-noescape>
 // View model: app.js
 export class App {
   constructor() {
@@ -634,6 +618,34 @@ export class App {
   }
 }
 								</code></pre>
+								<ul>
+									<li class="fragment">Export a class.</li>
+									<li class="fragment">Properties and methods are available to view.</li>
+									<li class="fragment">Notice no framework code!</li>
+								</ul>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code fragment"><code class="hljs" data-trim data-noescape>
+&lt;!-- View: app.html --&gt;
+&lt;template&gt;
+
+  &lt;h2&gt;${heading}&lt;/h2&gt;
+
+  &lt;form submit.delegate="submit()"&gt;
+    &lt;input type="text" value.bind="firstName"&gt;
+    &lt;input type="text" value.bind="lastName"&gt;
+
+    &lt;p&gt;${fullName | upper}&lt;/p&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/template&gt;
+								</code></pre>
+								<ul>
+									<li class="fragment">Every view has a &lt;template&gt; (Web Components Spec).</li>
+									<li class="fragment"><code>&#36;&#123;foo&#125;</code> is binding syntax, same as ES2015 string template literals.</li>
+								</ul>
 							</div>
 						</div>
 					</section>
