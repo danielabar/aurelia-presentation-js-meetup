@@ -635,7 +635,7 @@ export class App {
     &lt;input type="text" value.bind="firstName"&gt;
     &lt;input type="text" value.bind="lastName"&gt;
 
-    &lt;p&gt;${fullName | upper}&lt;/p&gt;
+    &lt;p&gt;${fullName}&lt;/p&gt;
 
     &lt;button type="submit"&gt;Submit&lt;/button&gt;
   &lt;/form&gt;
@@ -664,7 +664,6 @@ export class App {
 									<li class="fragment" data-fragment-index="1">Append <code>.bind</code> to any html or custom attribute.</li>
 									<li class="fragment" data-fragment-index="2">Defaults to two-way for &lt;input&gt;, one-way for everything else.</li>
 									<li class="fragment" data-fragment-index="3">Want more control? <code>.one-way</code>, <code>.two-way</code>, <code>.one-time</code>.</li>
-									<li class="fragment" data-fragment-index="4"><a href="http://eisenbergeffect.bluespire.com/aurelias-adaptive-binding/">Adaptive Binding</a> picks optimal observation strategy &amp; minimizes dirty checking.</li>
 								</ul>
 							</div>
 							<div class="right-side">
