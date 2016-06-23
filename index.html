@@ -573,7 +573,6 @@ script.next().value.then((r) => {
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">System.js implements the ES2015 module loader</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">config.js configures the loader (mostly auto generated)</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Kick off aurelia</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">By <em>convention</em>, Aurelia looks for module named "app" to render...</li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -597,7 +596,7 @@ script.next().value.then((r) => {
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>App Module</h2>
+						<h2>App View and View Model Pair</h2>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code fragment"><code class="hljs" data-trim data-noescape>
@@ -613,7 +612,7 @@ export class App {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  submit(){
+  sayWelcome{
     alert(`Welcome, ${this.fullName}!`);
   }
 }
@@ -631,7 +630,7 @@ export class App {
 
   &lt;h2&gt;${heading}&lt;/h2&gt;
 
-  &lt;form submit.delegate="submit()"&gt;
+  &lt;form submit.delegate="sayWelcome"&gt;
     &lt;input type="text" value.bind="firstName"&gt;
     &lt;input type="text" value.bind="lastName"&gt;
 
@@ -643,7 +642,7 @@ export class App {
 &lt;/template&gt;
 								</code></pre>
 								<ul>
-									<li class="fragment">Every view has a &lt;template&gt; (Web Components Spec).</li>
+									<li class="fragment">Every view has a &lt;template&gt;</li>
 									<li class="fragment"><code>&#36;&#123;foo&#125;</code> is binding syntax, same as ES2015 string template literals.</li>
 									<li class="fragment"><code>.bind</code> data binding syntax simply appended to html attributes or events.</li>
 								</ul>
@@ -686,54 +685,6 @@ export class App {
 							</div>
 						</div>
 					</section>
-
-					<!-- Maybe don't need this -->
-					<!-- <section data-state="side-by-side">
-						<h2>Model-View-View Model (MVVM)</h2>
-						<h3>Separation of Concerns</h3>
-						<div class="container bordered">
-							<div class="col fragment">
-								<h3>Model</h3>
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-{
-	id: 1,
-	title: 'Star Wars',
-	year: '1979'
-}
-								</pre></code>
-								<p>Typically data fetched from service.</p>
-							</div>
-							<div class="col fragment">
-								<h3>View Model</h3>
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-export class Movie {
-	constructor() {
-		...
-	}
-	activate() {
-		this.movie = ...
-	}
-	save() {
-		...
-	}
-}
-								</pre></code>
-								<p>Presents data to view and handles interactions.</p>
-							</div>
-							<div class="col fragment">
-								<h3>View</h3>
-								<pre class="presentation-code"><code class="hbs" data-trim>
-<h1>
-	${movie.title}
-</h1>
-<form>
-	<button click.trigger="save()">
-	</button>
-</form>
-								</code></pre>
-								<p>Markup and binding expressions.</p>
-						</div>
-					</section> -->
 
 					<section data-state="side-by-side">
 						<h2>Routing</h2>
