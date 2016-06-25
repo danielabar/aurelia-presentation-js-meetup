@@ -854,60 +854,6 @@ export class App {</span>
 						</div>
 					</section>
 
-					<section data-state="enough-foo" data-transition="none" data-background-transition="none" data-background-image="images/grumpy-old-guys.jpg" data-background-position="50% 50%">
-						<div class="content">
-							<h2>Enough with the Foo</h2>
-							<h3>Let's see a real example!</h3>
-						</div>
-					</section>
-
-					<section data-state="side-by-side" data-transition="none">
-						<h2>Unit Test Example</h2>
-						<div class="container">
-							<div class="left-side">
-								<pre class="presentation-code"><code class="hljs" data-trim>
-export class Welcome {
-	constructor() {
-		this.firstName = 'John';
-		this.lastName = 'Doe';
-	}
-
-  get fullName() {
-    return `${this.firstName}
-			${this.lastName}`;
-  }
-
-  // other methods ...
-}
-								</code></pre>
-							</div>
-							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment"  data-fragment-index="1">import {Welcome} from
-	'../src/welcome.js';</span>
-
-<span class="fragment" data-fragment-index="2">describe('Welcome', () => {</span>
-  <span class="fragment" data-fragment-index="3">let welcome;
-  beforeEach(() => {
-    welcome = new Welcome();
-  });</span>
-
-  <span class="fragment" data-fragment-index="4">it('Returns default full name', () => {
-    expect(welcome.fullName)
-			.toEqual('John Doe');
-  });</span>
-  <span class="fragment" data-fragment-index="5">it('Returns full name', () => {
-    welcome.firstName = 'Sara';
-    welcome.lastName = 'Smith';
-    expect(welcome.fullName)
-			.toEqual('Sara Smith');
-  });</span>
-<span class="fragment" data-fragment-index="2">});</span>
-								</code></pre>
-							</div>
-						</div>
-					</section>
-
 					<section data-state="side-by-side">
 						<h2>End to end Testing</h2>
 						<div class="container">
