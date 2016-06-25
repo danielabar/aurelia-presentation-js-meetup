@@ -65,19 +65,8 @@
   width: 50%;
 }
 
-.side-by-side .bordered {
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-}
-
-.side-by-side .col {
-  width: 33%;
-}
-
-.side-by-side .col p {
-  margin-left: 20px;
-  text-align: left;
+.side-by-side .small-left-side {
+  width: 40%;
 }
 
 .enough-foo .content {
