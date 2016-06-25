@@ -802,14 +802,13 @@ export class App {</span>
 
 					<section data-state="side-by-side">
 						<h2>Unit Testing with Aurelia</h2>
-						<h3>Good news, it's easy!</h3>
 						<div class="container">
 							<div class="left-side">
 								<img src="images/easy.jpg" class="no-border" alt="easy">
 							</div>
 							<div class="right-side">
 								<ul>
-									<li class="fragment">Because everything you write is just a class.</li>
+									<li class="fragment">It's easy because everything is just a class.</li>
 									<li class="fragment">No boilerplate imposed by framework.</li>
 									<li class="fragment">Constructor based dependency injection makes it trivial to provide mock dependencies.</li>
 								</ul>
@@ -871,17 +870,17 @@ export class App {</span>
 
 					<section data-state="side-by-side">
 						<h2>Welcome Page E2E Test</h2>
-						<p>Write a Page Object class to encapsulate browser interactions.</p>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code"><code class="hljs" data-trim>
+// welcome.po.js
 export class PageObjectWelcome {
-	constructor() { }
 
 	setFirstName(value) {
 		return element(by.valueBind('user.firstName'))
 			.clear().sendKeys(value);
 	}
+
 	setLastName(value) {
 		return element(by.valueBind('user.lastName'))
 			.clear().sendKeys(value);
@@ -900,7 +899,6 @@ export class PageObjectWelcome {
 
 <span class="fragment" data-fragment-index="2">describe('Welcome Page', () => {
 	<span class="fragment" data-fragment-index="3">let poWelcome;
-
 	beforeEach(() => {
 		poWelcome = new PageObjectWelcome();
 		browser.loadAndWaitForAureliaPage(
@@ -911,14 +909,17 @@ export class PageObjectWelcome {
 		poWelcome.setFirstName('Joe');
 		poWelcome.setLastName('Smith');
 		poWelcome.register();
-		...
+
+		<span class="fragment" data-fragment-index="5">browser.waitForRouterComplete();
+    expect(browser.getTitle())
+			.toBe('Registration Complete');</span>
 	})</span>
 <span class="fragment" data-fragment-index="2">});</span>
 								</code></pre>
 							</div>
 						</div>
 						<ul>
-							<li class="fragment"data-fragment-index="6">If template changes, only need to change PO, not every test.</li>
+							<p class="fragment"data-fragment-index="6">If template changes, only need to change PO, not every test.</p>
 						</ul>
 					</section>
 
