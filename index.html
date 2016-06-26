@@ -599,7 +599,7 @@ script.next().value.then((r) => {
 						<h2>App View and View Model Pair</h2>
 						<div class="container">
 							<div class="left-side">
-								<pre class="presentation-code fragment"><code class="hljs" data-trim data-noescape>
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim data-noescape>
 // View model: app.js
 export class App {
   constructor() {
@@ -618,13 +618,13 @@ export class App {
 }
 								</code></pre>
 								<ul>
-									<li class="fragment">Export a class.</li>
-									<li class="fragment">Properties and methods are available to view.</li>
-									<li class="fragment">Notice no framework code!</li>
+									<li class="fragment" data-fragment-index="1">Export a class.</li>
+									<li class="fragment" data-fragment-index="2">Properties and methods are available to view.</li>
+									<li class="fragment" data-fragment-index="3">Notice no framework code!</li>
 								</ul>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code fragment"><code class="hljs" data-trim data-noescape>
+								<pre class="presentation-code fragment" data-fragment-index="4"><code class="hljs" data-trim data-noescape>
 &lt;!-- View: app.html --&gt;
 &lt;template&gt;
 
@@ -642,9 +642,9 @@ export class App {
 &lt;/template&gt;
 								</code></pre>
 								<ul>
-									<li class="fragment">Every view has a &lt;template&gt;</li>
-									<li class="fragment"><code>&#36;&#123;foo&#125;</code> is binding syntax, same as ES2015 string template literals.</li>
-									<li class="fragment"><code>.bind</code> data binding syntax simply appended to html attributes or events.</li>
+									<li class="fragment" data-fragment-index="4">Every view has a &lt;template&gt;</li>
+									<li class="fragment" data-fragment-index="5"><code>&#36;&#123;foo&#125;</code> is binding syntax, same as ES2015 string template literals.</li>
+									<li class="fragment" data-fragment-index="6"><code>.bind</code> data binding syntax simply appended to html attributes or events.</li>
 								</ul>
 							</div>
 						</div>
