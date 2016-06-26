@@ -597,7 +597,7 @@ script.next().value.then((r) => {
 					</section>
 
 					<section data-state="side-by-side">
-						<h2>App View and View Model Pair</h2>
+						<h2>App View and View Model</h2>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim data-noescape>
@@ -631,13 +631,15 @@ export class App {
 
   &lt;h2&gt;${heading}&lt;/h2&gt;
 
-  &lt;form submit.delegate="sayWelcome"&gt;
+  &lt;form&gt;
     &lt;input type="text" value.bind="firstName"&gt;
     &lt;input type="text" value.bind="lastName"&gt;
 
     &lt;p&gt;${fullName}&lt;/p&gt;
 
-    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button click.trigger="sayWelcome()"&gt;
+			Submit
+		&lt;/button&gt;
   &lt;/form&gt;
 
 &lt;/template&gt;
