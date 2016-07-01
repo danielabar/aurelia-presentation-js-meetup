@@ -652,7 +652,7 @@ export class App {
 								<ol>
 									<li class="fragment" data-fragment-index="1">Define container for routing view with <code>&lt;router-view&gt;</code> element.</li>
 									<li class="fragment" data-fragment-index="2" style="margin-top: 1em;">Implement <code>configureRouter()</code> method in view model.</li>
-									<li class="fragment" data-fragment-index="3" style="margin-top: 1em;">Implement view and view model pairs for each route (welcome.js, welcome.html, users.js, etc.)</li>
+									<li class="fragment" data-fragment-index="4" style="margin-top: 1em;">Implement view and view model pairs for each route (welcome.js, welcome.html, users.js, etc.)</li>
 								</ol>
 							</div>
 							<div class="right-side">
@@ -666,11 +666,11 @@ export class App {
 // anywhere.js
 <span class="fragment" data-fragment-index="2">export class Anywhere {
 	configureRouter(config, router) {</span>
-		config.map([
+		<span class="fragment" data-fragment-index="3">config.map([
 			{route: ['', 'welcome'], moduleId: 'welcome'},
 			{route: 'users', moduleId: 'users'},
 			{route: 'users/:id', moduleId: 'userdetail'}
-		]);
+		]);</span>
 	<span class="fragment" data-fragment-index="2">}
 }</span>
 								</code></pre>
@@ -684,9 +684,9 @@ export class App {
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1"><code>activate()</code> method called with url parameters.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">If a promise is returned, Aurelia waits for it to resolve before rendering view.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">When navigating away from the view, <code>deactivate()</code> is called.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4"><code>canActivate()</code> and <code>canDeactivate() to control navigation.</code></li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2" style="margin-top: 0.4em;">Waits for promise to resolve before rendering view.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3" style="margin-top: 1.3em;">When navigating away from the view, <code>deactivate()</code> is called.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4" style="margin-top: 0.4em;"><code>canActivate()</code> and <code>canDeactivate() to control navigation.</code></li>
 								</ul>
 							</div>
 							<div class="right-side">
@@ -721,26 +721,26 @@ export class UserDetail {
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import dependencies.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import Aurelia injection.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Delcare dependencies using <code>inject</code> decorator.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import inject decorator..</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Delcare dependencies with <code>inject</code> decorator.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">DI container constructs instance of the dependency and passes reference to constructor.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Consuming class can now use the depdendency.</li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">import {SomeService} from 'path/to/someService';</span>
+<span class="fragment" data-fragment-index="1">import {UserServivce} from 'path/to/user-service';</span>
 <span class="fragment" data-fragment-index="2">import {inject} from 'aurelia-framework';</span>
 
-<span class="fragment" data-fragment-index="3">@inject(SomeService)
-export class App {</span>
-  <span class="fragment" data-fragment-index="4">constructor(someService) {
-    this.someService = someService;
+<span class="fragment" data-fragment-index="3">@inject(UserServivce)
+export class UserDetail {</span>
+  <span class="fragment" data-fragment-index="4">constructor(userService) {
+    this.userService = userService;
   }</span>
 
-  <span class="fragment" data-fragment-index="5">doSomething() {
-    let result = this.someService.doSomething();
-    ...
+  <span class="fragment" data-fragment-index="5">activate(params) {
+    return this.userService.getUser(params.id)
+    	.then(...)
   }</span>
 <span class="fragment" data-fragment-index="3">}</span>
 								</code></pre>
@@ -800,6 +800,16 @@ export class ContactCard {
 						</div>
 						<p class="fragment" data-fragment-index="3">Full lifecycle methods are:</p>
 						<p class="fragment" data-fragment-index="3"><code>created(view)</code>, <code>bind(bindingContext)</code>, <code>attached()</code>, <code>detached()</code>, <code>unbind()</code></p>
+					</section>
+
+					<section>
+						<h2>A few more things...</h2>
+						<ul>
+							<li>Custom attributes.</li>
+							<li>Pub/Sub with EventAggregator.</li>
+							<li>Unit and end-to-end testing, see <a href="https://github.com/aurelia/skeleton-navigation">starter kits</a> for examples.</li>
+							<li><a href="http://aurelia.io/hub.html#/doc/persona/developer">Articles and documentation.</a></li>
+						</ul>
 					</section>
 				</section>
 				<!-- End Daniela: Hello Aurelia -->
