@@ -590,7 +590,7 @@ export class App {
 								</code></pre>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code fragment" data-fragment-index="4"><code class="hljs" data-trim data-noescape>
+								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim data-noescape>
 &lt;!-- View: app.html --&gt;
 &lt;template&gt;
 
@@ -649,11 +649,11 @@ export class App {
 						<h2>Routing</h2>
 						<div class="container">
 							<div class="left-side">
-								<ul>
+								<ol>
 									<li class="fragment" data-fragment-index="1">Define container for routing view with <code>&lt;router-view&gt;</code> element.</li>
-									<li class="fragment" data-fragment-index="2">Implement <code>configureRouter()</code> method in view model.</li>
-									<li class="fragment" data-fragment-index="3">Define modules (view/view model pairs) for routes (welcome.js, welcome.html, users.js, etc.)</li>
-								</ul>
+									<li class="fragment" data-fragment-index="2" style="margin-top: 1em;">Implement <code>configureRouter()</code> method in view model.</li>
+									<li class="fragment" data-fragment-index="3" style="margin-top: 1em;">Implement view and view model pairs for each route (welcome.js, welcome.html, users.js, etc.)</li>
+								</ol>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hbs" data-trim>
@@ -683,15 +683,15 @@ export class App {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">If view model implements <code>activate()</code> method, its invoked with url parameters.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">If a promise is returned from activate, Aurelia will wait for it to resolve before rendering view.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">When user navigates away from this view, <code>deactivate()</code> is called, opportunity to clean up.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">Also have <code>canActivate()</code> and <code>canDeactivate()</code></li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1"><code>activate()</code> method called with url parameters.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">If a promise is returned, Aurelia waits for it to resolve before rendering view.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">When navigating away from the view, <code>deactivate()</code> is called.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4"><code>canActivate()</code> and <code>canDeactivate() to control navigation.</code></li>
 								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-export class User {
+export class UserDetail {
 	constructor() { ... }
 
 	<span class="fragment" data-fragment-index="1">activate(params) {</span>
@@ -702,7 +702,13 @@ export class User {
 			.catch(err => ... error handling)</span>
 	<span class="fragment" data-fragment-index="1">}</span>
 
-	<span class="fragment" data-fragment-index="3">deactivate() { ... }</span>
+	<span class="fragment" data-fragment-index="3">deactivate() {
+		// cleanup
+	}</span>
+
+	<span class="fragment" data-fragment-index="4">canActivate() { ... }
+
+	canDeactivate() { ... }</span>
 }
 								</code></pre>
 							</div>
