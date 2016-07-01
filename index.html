@@ -566,12 +566,13 @@ script.next().value.then((r) => {
 				<!-- BEGIN Daniela: Hello Aurelia -->
 				<section>
 					<section data-state="side-by-side">
-						<h2>Component: View and View Model</h2>
+						<h2>View and View-Model</h2>
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim data-noescape>
 // View model: app.js
 export class App {
+
   constructor() {
     this.heading = 'Hello Aurelia!';
     this.firstName = 'John';
@@ -587,10 +588,6 @@ export class App {
   }
 }
 								</code></pre>
-								<ul>
-									<li class="fragment" data-fragment-index="1">Export a class.</li>
-									<li class="fragment" data-fragment-index="2">Properties and methods are available to view.</li>
-								</ul>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code fragment" data-fragment-index="4"><code class="hljs" data-trim data-noescape>
@@ -612,11 +609,6 @@ export class App {
 
 &lt;/template&gt;
 								</code></pre>
-								<ul>
-									<li class="fragment" data-fragment-index="4">Every view has a &lt;template&gt;</li>
-									<li class="fragment" data-fragment-index="5"><code>&#36;&#123;foo&#125;</code> is binding syntax, same as ES2015 string template literals.</li>
-									<li class="fragment" data-fragment-index="6"><code>.bind</code> data binding syntax simply appended to html attributes or events.</li>
-								</ul>
 							</div>
 						</div>
 					</section>
@@ -627,7 +619,7 @@ export class App {
 							<div class="left-side">
 								<ul>
 									<li class="fragment" data-fragment-index="1">Append <code>.bind</code> to any html or custom attribute.</li>
-									<li class="fragment" data-fragment-index="2">Defaults to two-way for &lt;input&gt;, one-way for everything else.</li>
+									<li class="fragment" data-fragment-index="2">Defaults to one-way, except &lt;input&gt; which is two-way.</li>
 									<li class="fragment" data-fragment-index="3">Want more control? <code>.one-way</code>, <code>.two-way</code>, <code>.one-time</code>.</li>
 								</ul>
 							</div>
@@ -750,19 +742,58 @@ export class App {</span>
 						</div>
 					</section>
 
-					<section>
+					<section data-state="side-by-side">
 						<h2>Custom Elements</h2>
-					</section>
+						<div class="container">
+							<div class="left-side">
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim data-noescape>
+// View Model: contact-card.js
+import {bindable, inject} from 'aurelia-framework';
 
-					<section>
-						<h2>The Component Lifecycle</h2>
-						<ul>
-							<li>constructor()</li>
-							<li>bind()</li>
-							<li>attached()</li>
-							<li>detached()</li>
-							<li>unbind()</li>
-						</ul>
+@inject(Element)
+export class ContactCard {
+	@bindable name;
+
+	constructor(element) {
+    this.element = element;
+  }
+
+	attached() {
+		// DOM manipulation
+	}
+
+	detached() {
+		// cleanup
+	}
+}
+								</code></pre>
+							</div>
+							<div class="right-side">
+								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hbs" data-trim data-noescape>
+&lt;!-- View: contact-card.html --&gt;
+&lt;template&gt;
+	&lt;div class="contact-card"&gt;
+		&lt;input type="text" value.bind="name"&gt;
+		...
+	&lt;/div&gt;
+&lt;/template&gt;
+								</code></pre>
+								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim data-noescape>
+&lt;!-- Usage: some-view.html --&gt;
+&lt;template&gt;
+	&lt;require from="contact-card"&gt;&lt;/require&gt;
+
+	&lt;div class="user-details"&gt;
+		&lt;contact-card
+			name.two-way="user.name"&gt;
+		&lt;contact-card&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+								</code></pre>
+							</div>
+						</div>
+						<p class="fragment" data-fragment-index="3">Full lifecycle methods are:</p>
+						<p class="fragment" data-fragment-index="3"><code>created(view)</code>, <code>bind(bindingContext)</code>, <code>attached()</code>, <code>detached()</code>, <code>unbind()</code></p>
 					</section>
 				</section>
 				<!-- End Daniela: Hello Aurelia -->
