@@ -657,13 +657,13 @@ export class App {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hbs" data-trim>
-<!-- anywhere.html -->
+<!-- View: anywhere.html -->
 <template>
 	<router-view></router-view>
 </template>
 								</code></pre>
 								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim data-noescape>
-// anywhere.js
+// View Model: anywhere.js
 <span class="fragment" data-fragment-index="2">export class Anywhere {
 	configureRouter(config, router) {</span>
 		<span class="fragment" data-fragment-index="3">config.map([
@@ -676,6 +676,7 @@ export class App {
 								</code></pre>
 							</div>
 						</div>
+						<p class="fragment" style="margin-top: 1.5em;"><em>Any view can be a routing container and they can be nested.</em></p>
 					</section>
 
 					<section data-state="side-by-side">
