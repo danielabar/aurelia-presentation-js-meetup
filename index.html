@@ -591,23 +591,23 @@ export class App {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hljs" data-trim data-noescape>
-&lt;!-- View: app.html --&gt;
-&lt;template&gt;
+<span class="fragment" data-fragment-index="2">&lt;!-- View: app.html --&gt;
+&lt;template&gt;</span>
 
-  &lt;h2&gt;${heading}&lt;/h2&gt;
+  <span class="fragment" data-fragment-index="3">&lt;h2&gt;${heading}&lt;/h2&gt;</span>
 
-  &lt;form&gt;
+  <span class="fragment" data-fragment-index="4">&lt;form&gt;
     &lt;input type="text" value.bind="firstName"&gt;
-    &lt;input type="text" value.bind="lastName"&gt;
+    &lt;input type="text" value.bind="lastName"&gt;</span>
 
-    &lt;p&gt;${fullName}&lt;/p&gt;
+    <span class="fragment" data-fragment-index="5">&lt;p&gt;${fullName}&lt;/p&gt;</span>
 
-    &lt;button click.trigger="sayWelcome()"&gt;
+    <span class="fragment" data-fragment-index="6">&lt;button click.trigger="sayWelcome()"&gt;
 			Submit
-		&lt;/button&gt;
-  &lt;/form&gt;
+		&lt;/button&gt;</span>
+  <span class="fragment" data-fragment-index="4">&lt;/form&gt;</span>
 
-&lt;/template&gt;
+<span class="fragment" data-fragment-index="2">&lt;/template&gt;</span>
 								</code></pre>
 							</div>
 						</div>
@@ -652,7 +652,7 @@ export class App {
 								<ol>
 									<li class="fragment" data-fragment-index="1">Define container for routing view with <code>&lt;router-view&gt;</code> element.</li>
 									<li class="fragment" data-fragment-index="2" style="margin-top: 1em;">Implement <code>configureRouter()</code> method in view model.</li>
-									<li class="fragment" data-fragment-index="4" style="margin-top: 1em;">Implement view and view model pairs for each route (welcome.js, welcome.html, users.js, etc.)</li>
+									<li class="fragment" data-fragment-index="4" style="margin-top: 1em;">Implement view and view model pairs for each route (welcome.js, welcome.html, users.js, etc.).</li>
 								</ol>
 							</div>
 							<div class="right-side">
@@ -684,7 +684,7 @@ export class App {
 						<div class="container">
 							<div class="left-side">
 								<ul>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1"><code>activate()</code> method called with url parameters.</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1"><code>activate()</code> method called with url and query parameters.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2" style="margin-top: 0.4em;">Waits for promise to resolve before rendering view.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3" style="margin-top: 1.3em;">When navigating away from the view, <code>deactivate()</code> is called.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4" style="margin-top: 0.4em;"><code>canActivate()</code> and <code>canDeactivate() to control navigation.</code></li>
@@ -697,7 +697,6 @@ export class UserDetail {
 
 	<span class="fragment" data-fragment-index="1">activate(params) {</span>
 		<span class="fragment" data-fragment-index="2">// assume this.userService is available
-		// and returns a promise
 		return this.userService.getUser(params.id)
 			.then(user => this.user = user)
 			.catch(err => ... error handling)</span>
@@ -714,6 +713,7 @@ export class UserDetail {
 								</code></pre>
 							</div>
 						</div>
+						<p class="fragment" data-fragment-index="5" style="margin-top: 1.5em;"><em>All lifecycle methods can optionally be implemented.</em></p>
 					</section>
 
 					<section data-state="side-by-side">
@@ -733,8 +733,8 @@ export class UserDetail {
 <span class="fragment" data-fragment-index="1">import {UserServivce} from 'path/to/user-service';</span>
 <span class="fragment" data-fragment-index="2">import {inject} from 'aurelia-framework';</span>
 
-<span class="fragment" data-fragment-index="3">@inject(UserServivce)
-export class UserDetail {</span>
+<span class="fragment" data-fragment-index="3">@inject(UserServivce)</span>
+export class UserDetail {
   <span class="fragment" data-fragment-index="4">constructor(userService) {
     this.userService = userService;
   }</span>
@@ -743,10 +743,11 @@ export class UserDetail {</span>
     return this.userService.getUser(params.id)
     	.then(...)
   }</span>
-<span class="fragment" data-fragment-index="3">}</span>
+}
 								</code></pre>
 							</div>
 						</div>
+						<p class="fragment" data-fragment-index="6" style="margin-top: 1.5em;"><em>Constructor based DI makes it easy to mock out dependencies in unit tests.</em></p>
 					</section>
 
 					<section data-state="side-by-side">
@@ -785,16 +786,16 @@ export class ContactCard {
 	&lt;/div&gt;
 &lt;/template&gt;
 								</code></pre>
-								<pre class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim data-noescape>
+								<pre style="margin-top: 2em;" class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim data-noescape>
 &lt;!-- Usage: some-view.html --&gt;
 &lt;template&gt;
 	&lt;require from="contact-card"&gt;&lt;/require&gt;
 
-	&lt;div class="user-details"&gt;
-		&lt;contact-card
-			name.two-way="user.name"&gt;
-		&lt;contact-card&gt;
-	&lt;/div&gt;
+	&lt;contact-card
+		name.two-way="user.name"&gt;
+	&lt;contact-card&gt;
+	...
+
 &lt;/template&gt;
 								</code></pre>
 							</div>
