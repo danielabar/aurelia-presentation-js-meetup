@@ -692,7 +692,7 @@ export class App {
 								</ul>
 							</div>
 							<div class="right-side">
-								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
+								<pre class="presentation-code"><code class="hljs javascript" data-trim data-noescape>
 export class UserDetail {
 	constructor() { ... }
 
@@ -756,38 +756,38 @@ export class UserDetail {
 						<div class="container">
 							<div class="left-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hljs" data-trim data-noescape>
-// View Model: contact-card.js
-import {bindable, inject} from 'aurelia-framework';
+<span class="fragment" data-fragment-index="1">// View Model: contact-card.js
+import {bindable, inject} from 'aurelia-framework';</span>
 
-@inject(Element)
-export class ContactCard {
-	@bindable name;
+<span class="fragment" data-fragment-index="2">@inject(Element)</span>
+<span class="fragment" data-fragment-index="1">export class ContactCard {
+	@bindable name;</span>
 
-	constructor(element) {
+	<span class="fragment" data-fragment-index="2">constructor(element) {
     this.element = element;
   }
 
 	attached() {
 		// DOM manipulation
-	}
+	}</span>
 
-	detached() {
+	<span class="fragment" data-fragment-index="3">detached() {
 		// cleanup
-	}
-}
+	}</span>
+<span class="fragment" data-fragment-index="1">}</span>
 								</code></pre>
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code fragment" data-fragment-index="1"><code class="hbs" data-trim data-noescape>
 &lt;!-- View: contact-card.html --&gt;
 &lt;template&gt;
-	&lt;div class="contact-card"&gt;
+	<span class="fragment" data-fragment-index="4">&lt;div class="contact-card"&gt;
 		&lt;input type="text" value.bind="name"&gt;
 		...
-	&lt;/div&gt;
+	&lt;/div&gt;</span>
 &lt;/template&gt;
 								</code></pre>
-								<pre style="margin-top: 2em;" class="presentation-code fragment" data-fragment-index="2"><code class="hbs" data-trim data-noescape>
+								<pre style="margin-top: 2em;" class="presentation-code fragment" data-fragment-index="5"><code class="hbs" data-trim data-noescape>
 &lt;!-- Usage: some-view.html --&gt;
 &lt;template&gt;
 	&lt;require from="contact-card"&gt;&lt;/require&gt;
@@ -801,8 +801,8 @@ export class ContactCard {
 								</code></pre>
 							</div>
 						</div>
-						<p class="fragment" data-fragment-index="3">Component lifecycle methods:</p>
-						<p class="fragment" data-fragment-index="3"><code>created(view)</code>, <code>bind(bindingContext)</code>, <code>attached()</code>, <code>detached()</code>, <code>unbind()</code></p>
+						<p class="fragment" data-fragment-index="6">Component lifecycle methods:</p>
+						<p class="fragment" data-fragment-index="6"><code>created(view)</code>, <code>bind(bindingContext)</code>, <code>attached()</code>, <code>detached()</code>, <code>unbind()</code></p>
 					</section>
 
 					<section>
