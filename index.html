@@ -579,11 +579,11 @@ export class App {
     this.lastName = 'Doe';
   }
 
-  get fullName(){
+  get fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  sayWelcome{
+  sayWelcome() {
     alert(`Welcome, ${this.fullName}!`);
   }
 }
@@ -611,6 +611,7 @@ export class App {
 								</code></pre>
 							</div>
 						</div>
+						<p class="fragment" data-fragment-index="7" style="margin-top: 1.5em;"><em>Minimal framework intrusion in code.</em></p>
 					</section>
 
 					<section data-state="side-by-side">
@@ -642,7 +643,7 @@ export class App {
 								</code></pre>
 							</div>
 						</div>
-						<p class="fragment" data-fragment-index="4"><a href="http://eisenbergeffect.bluespire.com/aurelias-adaptive-binding/">Adaptive Binding</a> picks optimal observation strategy &amp; minimizes dirty checking.</p>
+						<p class="fragment" data-fragment-index="4" style="margin-top: 1.5em;"><em><a href="http://eisenbergeffect.bluespire.com/aurelias-adaptive-binding/">Adaptive Binding</a> picks optimal observation strategy &amp; minimizes dirty checking.</em></p>
 					</section>
 
 					<section data-state="side-by-side">
@@ -722,7 +723,7 @@ export class UserDetail {
 							<div class="left-side">
 								<ul>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="1">Import dependencies.</li>
-									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import inject decorator..</li>
+									<li class="fragment zoom-in highlight-current-green" data-fragment-index="2">Import inject decorator.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="3">Delcare dependencies with <code>inject</code> decorator.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="4">DI container constructs instance of the dependency and passes reference to constructor.</li>
 									<li class="fragment zoom-in highlight-current-green" data-fragment-index="5">Consuming class can now use the depdendency.</li>
@@ -730,10 +731,10 @@ export class UserDetail {
 							</div>
 							<div class="right-side">
 								<pre class="presentation-code"><code class="hljs" data-trim data-noescape>
-<span class="fragment" data-fragment-index="1">import {UserServivce} from 'path/to/user-service';</span>
+<span class="fragment" data-fragment-index="1">import {UserService} from 'path/to/user-service';</span>
 <span class="fragment" data-fragment-index="2">import {inject} from 'aurelia-framework';</span>
 
-<span class="fragment" data-fragment-index="3">@inject(UserServivce)</span>
+<span class="fragment" data-fragment-index="3">@inject(UserService)</span>
 export class UserDetail {
   <span class="fragment" data-fragment-index="4">constructor(userService) {
     this.userService = userService;
@@ -800,7 +801,7 @@ export class ContactCard {
 								</code></pre>
 							</div>
 						</div>
-						<p class="fragment" data-fragment-index="3">Full lifecycle methods are:</p>
+						<p class="fragment" data-fragment-index="3">Component lifecycle methods:</p>
 						<p class="fragment" data-fragment-index="3"><code>created(view)</code>, <code>bind(bindingContext)</code>, <code>attached()</code>, <code>detached()</code>, <code>unbind()</code></p>
 					</section>
 
